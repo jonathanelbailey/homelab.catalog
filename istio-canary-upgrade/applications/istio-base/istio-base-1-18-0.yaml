@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-base
+  name: istio-base-1-18-0
   namespace: argocd
 spec:
   destination:
@@ -11,7 +11,7 @@ spec:
   source:
     chart: base
     repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.16.5
+    targetRevision: 1.18.0
   syncPolicy:
     automated:
       prune: true
@@ -24,3 +24,9 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - pilot-discovery

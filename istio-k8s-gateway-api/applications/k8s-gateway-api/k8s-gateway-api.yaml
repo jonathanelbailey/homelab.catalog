@@ -1,20 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bookinfo
+  name: k8s-gateway-api
   namespace: argocd
 spec:
   destination:
-    namespace: bookinfo
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      include: bookinfo.yaml
-      jsonnet: {}
-    path: samples/bookinfo/platform/kube
-    repoURL: https://github.com/istio/istio.git
-    targetRevision: HEAD
+    path: config/crd
+    repoURL: https://github.com/kubernetes-sigs/gateway-api/
+    targetRevision: release-0.7
   syncPolicy:
     automated:
       prune: true
@@ -25,5 +21,3 @@ spec:
         factor: 2
         maxDuration: 3m0s
       limit: 2
-    syncOptions:
-      - CreateNamespace=true

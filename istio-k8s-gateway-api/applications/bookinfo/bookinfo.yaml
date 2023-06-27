@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo
+  namespace: argocd
+spec:
+  destination:
+    namespace: bookinfo
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - directory:
+        include: bookinfo.yaml
+        jsonnet: {}
+      path: samples/bookinfo/platform/kube
+      repoURL: https://github.com/istio/istio.git
+      targetRevision: HEAD
+    - directory:
+        include: bookinfo-gateway.yaml
+        jsonnet: {}
+      path: istio-k8s-gateway-api/services/bookinfo
+      repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
+      targetRevision: HEAD
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels: # The labels to set on the application namespace
+        istio.io/rev: stable
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true

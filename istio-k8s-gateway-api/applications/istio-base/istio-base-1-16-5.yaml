@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-base
+  name: istio-base-1-16-5
   namespace: argocd
 spec:
   destination:
@@ -24,3 +24,9 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - pilot-discovery
