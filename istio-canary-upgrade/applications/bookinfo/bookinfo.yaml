@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo
+  namespace: argocd
+spec:
+  destination:
+    namespace: bookinfo
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      include: bookinfo.yaml
+      jsonnet: {}
+    path: samples/bookinfo/platform/kube
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true

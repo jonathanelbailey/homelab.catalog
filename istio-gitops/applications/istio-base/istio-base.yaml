@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-base
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: base
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.16.5
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - pilot-discovery

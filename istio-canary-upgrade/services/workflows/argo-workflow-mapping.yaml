@@ -1,0 +1,26 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: argo-server-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: workflows.internal.magiccityit.com
+  prefix: /
+  service: argo-server.argo:2746
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: argo-workflows
+  namespace: emissary
+  annotations:
+      external-dns.ambassador-service: emissary-ingress.emissary
+spec:
+  ambassador_id: ["emissary"]
+  hostname: "workflows.internal.magiccityit.com"
+  acmeProvider:
+    authority: none
+  tlsSecret:
+    name: internal-magiccityit-domain-tls
+    namespace: cert-manager
