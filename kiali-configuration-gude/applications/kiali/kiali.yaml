@@ -12,7 +12,7 @@ spec:
     - chart: kiali-server
       helm:
         valueFiles:
-          - $values/services/kiali/microk8s-values.yaml
+          - $values/kiali-configuration-guide/services/kiali/values.yaml
       repoURL: https://kiali.org/helm-charts
       targetRevision: 1.63.2
     - ref: values
