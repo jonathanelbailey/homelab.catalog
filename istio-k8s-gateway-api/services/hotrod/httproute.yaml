@@ -1,0 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: hotrod
+  namespace: example-hotrod
+spec:
+  parentRefs:
+  - name: hotrod-gateway
+  hostnames:
+  - hotrod.internal.magiccityit.com
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: example-hotrod
+      port: 8080

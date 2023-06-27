@@ -1,0 +1,41 @@
+auth:
+  strategy: "anonymous"
+external_services:
+  grafana:
+    enabled: true
+    # Grafana service name is "grafana" and is in the "telemetry" namespace.
+    in_cluster_url: 'http://kube-prometheus-stack-grafana.monitoring:3000/'
+    # Public facing URL of Grafana
+    url: 'https://grafana.internal.magiccityit.com'
+
+  tracing:
+    # Enabled by default. Kiali will anyway fallback to disabled if
+    # Jaeger is unreachable.
+    enabled: true
+    # Jaeger service name is "tracing" and is in the "telemetry" namespace.
+    # Make sure the URL you provide corresponds to the non-GRPC enabled endpoint
+    # if you set "use_grpc" to false.
+    in_cluster_url: 'http://jaeger-tracing-query.monitoring:16685/jaeger'
+    use_grpc: true
+    # Public facing URL of Jaeger
+    url: 'https://jaeger-query.internal.magiccityit.com'
+
+  prometheus:
+    # Prometheus service name is "metrics" and is in the "telemetry" namespace
+    url: "http://kube-prometheus-stack-prometheus.monitoring:9090/"
+kiali_feature_flags:
+  istio_injection_action: true
+  istio_upgrade_action: true
+  certificates_information_indicators:
+    enabled: true
+    secrets:
+    - cacerts
+    - istio-ca-secret
+  clustering:
+    autodetect_secrets:
+      enabled: true
+      label: "kiali.io/multiCluster=true"
+    clusters: []
+  disabled_features: []
+  validations:
+    ignore: ["KIA1201"]
