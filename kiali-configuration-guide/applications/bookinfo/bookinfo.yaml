@@ -18,7 +18,7 @@ spec:
     - directory:
         include: bookinfo-gateway.yaml
         jsonnet: {}
-      path: istio-k8s-gateway-api/services/bookinfo
+      path: kiali-configuration-guide/services/bookinfo
       repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
       targetRevision: HEAD
   syncPolicy:

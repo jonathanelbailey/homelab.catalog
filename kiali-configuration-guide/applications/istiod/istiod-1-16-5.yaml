@@ -14,8 +14,8 @@ spec:
       targetRevision: 1.16.5
       helm:
         valueFiles:
-          - $values/istio-k8s-gateway-api/services/istiod/values.yaml
-    - repoURL: 'https://github.com:jonathanelbailey/homelab.catalog.git'
+          - $values/kiali-configuration-guide/services/istiod/values.yaml
+    - repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
       ref: values
       targetRevision: HEAD
   syncPolicy:
