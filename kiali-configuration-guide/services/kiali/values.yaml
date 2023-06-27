@@ -27,6 +27,9 @@ external_services:
   istio:
     component_status:
       components:
+      - app_label: "istiod"
+        is_core: true
+        is_proxy: false
       - app_label: "istio-ingressgateway"
         is_core: true
         is_proxy: true
@@ -36,7 +39,7 @@ external_services:
     istio_canary_revision:
       current: "1-16-5"
     istiod_deployment_name: "istiod-1-16-5"
-    
+
 kiali_feature_flags:
   istio_injection_action: true
   istio_upgrade_action: true
