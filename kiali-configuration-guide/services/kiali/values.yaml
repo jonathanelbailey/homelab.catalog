@@ -48,6 +48,7 @@ external_services:
     gateway_api_class_name: "istio"
     istio_canary_revision:
       current: "1-16-5"
+    istio_identity_domain: "cluster.local"
     istiod_deployment_name: "istiod-1-16-5"
 
 kiali_feature_flags:
