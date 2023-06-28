@@ -1,3 +1,7 @@
+## Discovery Settings
+pilot:
+  env:
+    ENABLE_DEBUG_ON_HTTP: "true"
 revision: "1-16-5"
 revisionTags: ["stable"]
 
