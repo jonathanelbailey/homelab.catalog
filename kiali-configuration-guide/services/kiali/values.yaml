@@ -34,22 +34,22 @@ external_services:
     # Prometheus service name is "metrics" and is in the "telemetry" namespace
     url: "http://kube-prometheus-stack-prometheus.monitoring:9090/"
 
-  istio:
-    component_status:
-      components:
-      - app_label: "istiod"
-        is_core: true
-        is_proxy: false
-      - app_label: "istio-ingressgateway"
-        is_core: true
-        is_proxy: true
-    config_map_name: "istio-1-16-5"
-    istio_sidecar_injector_config_map_name: "istio-sidecar-injector-1-16-5"
-    gateway_api_class_name: "istio"
-    istio_canary_revision:
-      current: "1-16-5"
-    istio_identity_domain: "cluster.local"
-    istiod_deployment_name: "istiod-1-16-5"
+  # istio:
+  #   component_status:
+  #     components:
+  #     - app_label: "istiod"
+  #       is_core: true
+  #       is_proxy: false
+  #     - app_label: "istio-ingressgateway"
+  #       is_core: true
+  #       is_proxy: true
+  #   config_map_name: "istio-1-16-5"
+  #   istio_sidecar_injector_config_map_name: "istio-sidecar-injector-1-16-5"
+  #   gateway_api_class_name: "istio"
+  #   istio_canary_revision:
+  #     current: "1-16-5"
+  #   istio_identity_domain: "cluster.local"
+  #   istiod_deployment_name: "istiod-1-16-5"
 
 kiali_feature_flags:
   istio_injection_action: true
