@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istiod
+  name: istiod-1-16-5
   namespace: argocd
 spec:
   destination:
