@@ -1,8 +1,13 @@
+istio_namespace: istio-system
 deployment:
   # This only limits what Kiali will attempt to see, but Kiali Service Account has permissions to see everything.
   # For more control over what the Kial Service Account can see, use the Kiali Operator
   accessible_namespaces:
   - "**"
+  resources:
+    limits:
+      cpu: 500m
+      memory: 256Mi
   logger:
     log_format: "text"
     log_level: "debug"
@@ -11,12 +16,20 @@ deployment:
 auth:
   strategy: "anonymous"
 external_services:
+  custom_dashboards:
+    enabled: true
+    is_core: true
+    namespace_label: "kubernetes_namespace"
+    prometheus:
+      auth:
+        type: none
+      url: http://kube-prometheus-stack-prometheus.monitoring:9090
   grafana:
     enabled: true
     # Grafana service name is "grafana" and is in the "telemetry" namespace.
-    in_cluster_url: 'http://kube-prometheus-stack-grafana.monitoring:3000/'
+    in_cluster_url: http://kube-prometheus-stack-grafana.monitoring:3000
     # Public facing URL of Grafana
-    url: 'https://grafana.internal.magiccityit.com'
+    url: https://grafana.internal.magiccityit.com
 
   tracing:
     # Enabled by default. Kiali will anyway fallback to disabled if
@@ -27,33 +40,43 @@ external_services:
     # if you set "use_grpc" to false.
     in_cluster_url: 'http://jaeger-tracing-query.monitoring:16685/jaeger'
     use_grpc: true
+    is_core: true
     # Public facing URL of Jaeger
     url: 'https://jaeger-query.internal.magiccityit.com'
 
   prometheus:
+    auth:
+      type: none
+    cache_duration: 10
+    cache_enabled: true
+    cache_expiration: 300
+    health_check_url: ""
+    is_core: true
     # Prometheus service name is "metrics" and is in the "telemetry" namespace
-    url: "http://kube-prometheus-stack-prometheus.monitoring:9090/"
+    url: http://kube-prometheus-stack-prometheus.monitoring:9090
 
-  # istio:
-  #   component_status:
-  #     components:
-  #     - app_label: "istiod"
-  #       is_core: true
-  #       is_proxy: false
-  #     - app_label: "istio-ingressgateway"
-  #       is_core: true
-  #       is_proxy: true
-  #   config_map_name: "istio-1-16-5"
-  #   istio_sidecar_injector_config_map_name: "istio-sidecar-injector-1-16-5"
-  #   gateway_api_class_name: "istio"
-  #   istio_canary_revision:
-  #     current: "1-16-5"
-  #   istio_identity_domain: "cluster.local"
-  #   istiod_deployment_name: "istiod-1-16-5"
+  istio:
+    component_status:
+      components:
+      - app_label: istiod
+        is_core: true
+        is_proxy: false
+      - app_label: istio-ingressgateway
+        is_core: true
+        is_proxy: true
+      enabled: true
+    config_map_name: istio
+    envoy_admin_local_port: 15000
+    istio_identity_domain: svc.cluster.local
+    istio_injection_annotation: "sidecar.istio.io/inject"
+    istio_sidecar_injector_config_map_name: "istio-sidecar-injector"
+    istiod_deployment_name: "istiod"
+
+identity: {}
 
 kiali_feature_flags:
   istio_injection_action: true
-  istio_upgrade_action: true
+  # istio_upgrade_action: true
   certificates_information_indicators:
     enabled: true
     secrets:
@@ -67,3 +90,13 @@ kiali_feature_flags:
   disabled_features: []
   validations:
     ignore: ["KIA1201"]
+
+login_token:
+  signing_key: ""
+
+server:
+  gzip_enabled: true
+  port: 20001
+  metrics_enabled: true
+  metrics_port: 9090
+  web_fqdn: kiali.internal.magiccityit.com

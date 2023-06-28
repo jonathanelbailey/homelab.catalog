@@ -17,7 +17,6 @@ meshConfig:
       max_path_tag_length: 99999
       zipkin:
         address: jaeger-tracing-collector.monitoring.svc:9411
-  rootNamespace: istio-system
 base:
   enableIstioConfigCRDs: false
   validateGateway: false
