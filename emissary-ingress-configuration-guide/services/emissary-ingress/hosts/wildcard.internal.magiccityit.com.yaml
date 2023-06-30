@@ -10,4 +10,3 @@ spec:
     authority: none
   tlsSecret:
     name: internal-magiccityit-domain-tls
-    namespace: cert-manager
