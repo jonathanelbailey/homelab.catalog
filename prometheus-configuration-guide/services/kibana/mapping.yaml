@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: kibana-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: kibana.internal.magiccityit.com
+  prefix: /
+  service: kibana-kibana.elastic:5601

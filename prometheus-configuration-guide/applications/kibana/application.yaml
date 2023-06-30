@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kibana
+  namespace: argo
+spec:
+  destination:
+    namespace: elastic
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: kibana
+      repoURL: https://helm.elastic.co
+      targetRevision: 8.5.1
+    - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+      path: prometheus-configuration-guide/services/kibana
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+s
