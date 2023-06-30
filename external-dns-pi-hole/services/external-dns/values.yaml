@@ -95,7 +95,23 @@ updateStrategy: {}
 command: []
 ## @param args Override kiam default args
 ##
-args: []
+args:
+  - --source=service
+  - --source=ingress
+  - --source=ambassador-host
+  # - --source=istio-gateway
+  # - --source=istio-virtualservice
+  # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
+  # You don't need to set this flag, but if you leave it unset, you will receive warning
+  # logs when ExternalDNS attempts to create TXT records.
+  - --registry=noop
+  # IMPORTANT: If you have records that you manage manually in Pi-hole, set
+  # the policy to upsert-only so they do not get deleted.
+  - --policy=upsert-only
+  - --provider=pihole
+  # Change this to the actual address of your Pi-hole web server
+  - --pihole-server=http://pi.hole
+  - --pihole-tls-skip-verify
 
 ## @param sources [array] K8s resources type to be observed for new DNS entries by ExternalDNS
 ##
@@ -731,7 +747,7 @@ forceTxtOwnerId: false
 ##
 extraArgs:
   pihole-server: http://pi.hole
-  pihole-tls-skip-verify: "true"
+
 ## @param extraEnvVars An array to add extra env vars
 ##
 extraEnvVars: []
