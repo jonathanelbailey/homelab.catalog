@@ -1,0 +1,19 @@
+logLevel: debug
+config:
+  outputs: |
+    [OUTPUT]
+        name loki
+        match *
+        host loki.grafana.svc
+        port 3100
+        tenant_id ""
+        labels job=fluentbit
+        label_keys $trace_id
+        auto_kubernetes_labels on
+  customParsers: |
+    [PARSER]
+        Name cri
+        Format regex
+        Regex ^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>[^ ]*) (?<message>.*)$
+        Time_Key    time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L%z
