@@ -1,0 +1,75 @@
+# Enable autoscaling using HorizontalPodAutoscaler
+# daemonSet: true, autoscaling will be disabled
+autoscaling: # +doc-gen:break
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 100
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 300
+
+# Install IngressClass resource
+ingressClassResource:
+  enabled: true
+  name: ambassador
+  default: true
+  controllerValue: getambassador.io/ingress-controller
+
+# namespace:
+#   # Explicitly set the AMBASSADOR_NAMESPACE environment variable
+#   name: emissary
+
+scope:
+  # Set the AMBASSADOR_SINGLE_NAMESPACE environment variable and create namespaced RBAC if rbac.enabled: true
+  singleNamespace: true
+
+env:
+  AMBASSADOR_ID: "emissary"
+
+
+# Prometheus Operator ServiceMonitor configuration
+# See documentation: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#servicemonitor
+metrics:
+  serviceMonitor:
+    enabled: false
+    # interval: 30s
+    # scrapeTimeout: 30s
+    # selector: {}
+
+# Create and manage an Ambassador Module from the Helm Chart. See:
+# https://www.getambassador.io/docs/edge-stack/latest/topics/running/ambassador
+# for more info on the available options.
+#
+# Note: The Module can only be named ambassador. There can only be one Module
+# installed per-namespace.
+module:
+  diagnostics:
+    enabled: true
+    allow_non_local: true
+
+
+
+# Configure the ambassador agent
+agent:
+  # If `true`, installs the ambassador-agent Deployment, ServiceAccount and ClusterRole in the ambassador namespace, enabling the Ambassador Cloud connectivity.
+  enabled: false
+  reportDiagnostics: false
+
+  createArgoRBAC: false
+
+# Whether Emissary should be created with default listeners:
+# - HTTP on port 8080
+# - HTTPS on port 8443
+createDefaultListeners: true
+
+app.kubernetes.io/component: ambassador-service
