@@ -11,6 +11,11 @@ esConfig:
 # Permit co-located instances for solitary minikube virtual machines.
 antiAffinity: "soft"
 
+createCert: false
+
+networkPolicy:
+  http:
+    enabled: true
 
 # Request smaller persistent volumes.
 volumeClaimTemplate:
