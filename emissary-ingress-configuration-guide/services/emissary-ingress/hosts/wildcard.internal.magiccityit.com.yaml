@@ -4,6 +4,7 @@ metadata:
   name: wildcard-host
   namespace: emissary
 spec:
+  ambassador_id: [ "emissary" ]
   hostname: "*.internal.magiccityit.com"
   acmeProvider:
     authority: none
