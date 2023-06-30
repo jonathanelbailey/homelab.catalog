@@ -58,6 +58,7 @@ spec:
             # Change this if you gave the secret a different name
             name: pihole-secret
         args:
+        - --log-level=debug
         - --source=service
         - --source=ingress
         # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
