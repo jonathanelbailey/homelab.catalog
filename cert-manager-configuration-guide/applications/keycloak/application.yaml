@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argo
+spec:
+  destination:
+    namespace: keycloak
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - repoURL: 'https://github.com/keycloak/keycloak-quickstarts'
+      path: kubernetes-examples
+      targetRevision: HEAD
+      directory:
+        jsonnet: {}
+        include: keycloak.yaml
+    - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      path: cert-manager-configuration-guide/services/keycloak
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
