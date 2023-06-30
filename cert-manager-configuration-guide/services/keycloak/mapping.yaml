@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: keycloak-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: keycloak.internal.magiccityit.com
+  prefix: /
+  service: keycloak.keycloak:8080
