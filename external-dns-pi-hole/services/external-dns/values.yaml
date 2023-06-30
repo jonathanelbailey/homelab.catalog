@@ -98,7 +98,7 @@ command: []
 args:
   - --source=service
   - --source=ingress
-  - --source=ambassador-host
+  # - --source=ambassador-host
   # - --source=istio-gateway
   # - --source=istio-virtualservice
   # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
