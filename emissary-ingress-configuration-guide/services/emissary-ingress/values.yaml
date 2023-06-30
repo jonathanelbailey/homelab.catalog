@@ -5,6 +5,12 @@ autoscaling: # +doc-gen:break
   minReplicas: 2
   maxReplicas: 5
 
+# Install IngressClass resource
+ingressClassResource:
+  enabled: true
+  name: ambassador
+  default: true
+  controllerValue: getambassador.io/ingress-controller
 
 # namespace:
 #   # Explicitly set the AMBASSADOR_NAMESPACE environment variable
