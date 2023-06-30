@@ -1,0 +1,25 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: vault-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: vault.internal.magiccityit.com
+  prefix: /
+  service: vault.vault:8200
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: argocd-server-cli
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  # NOTE: the port must be ignored if you have strip_matching_host_port enabled on envoy
+  host: argocd.internal.magiccityit.com:443
+  prefix: /
+  service: argocd-server.argo:80
+  regex_headers:
+    Content-Type: "^application/grpc.*$"
+  grpc: true
