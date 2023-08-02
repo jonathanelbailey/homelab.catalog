@@ -58,7 +58,7 @@ spec:
             # Change this if you gave the secret a different name
             name: pihole-secret
         args:
-        # - --log-level=debug
+        - --log-level=debug
         - --source=service
         - --source=ingress
         - --source=ambassador-host
