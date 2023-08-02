@@ -1,0 +1,12 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: wildcard-host
+  namespace: emissary
+spec:
+  ambassador_id: [ "emissary" ]
+  hostname: "*.internal.magiccityit.com"
+  acmeProvider:
+    authority: none
+  tlsSecret:
+    name: internal-magiccityit-domain-tls
