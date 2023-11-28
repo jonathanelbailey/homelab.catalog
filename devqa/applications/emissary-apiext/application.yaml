@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: emissary-ingress
-  namespace: argo
+  name: emissary-apiext
+  namespace: argocd
 spec:
   destination:
     namespace: emissary
@@ -13,20 +13,10 @@ spec:
       managedFieldsManagers:
         - clusterrole-aggregation-controller
   project: default
-  sources:
-    - chart: emissary-ingress
-      helm:
-        valueFiles:
-          - >-
-            $values/devqa/services/emissary-ingress/override-values.yaml
-      repoURL: https://app.getambassador.io
-      targetRevision: 8.7.0
-    - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-      path: devqa/services/emissary-ingress/hosts
-      targetRevision: HEAD
-    - ref: values
-      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-      targetRevision: HEAD
+  source:
+    repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+    path: devqa/services/emissary-apiext/
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
