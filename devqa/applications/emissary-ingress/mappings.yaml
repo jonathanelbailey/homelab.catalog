@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: emissary-mappings
+  namespace: argocd
+spec:
+  destination:
+    namespace: emissary
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - clusterrole-aggregation-controller
+  project: default
+  source:
+    repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+    path: devqa/services/emissary-ingress/mappings
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
