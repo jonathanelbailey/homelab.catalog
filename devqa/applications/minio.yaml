@@ -13,7 +13,7 @@ spec:
     path: devqa/services/minio
     targetRevision: HEAD
   sources:
-    - chart: emissary-ingress
+    - chart: operator
       helm:
         valueFiles:
           - >-
