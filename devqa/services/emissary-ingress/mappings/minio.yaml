@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: minio
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: minio.internal.magiccityit.com
+  prefix: /
+  service: console.minio-operator:9000

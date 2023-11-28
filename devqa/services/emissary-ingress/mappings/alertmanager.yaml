@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: alertmanager-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: alertmanager.internal.magiccityit.com
+  prefix: /
+  service: kube-prometheus-stack-alertmanager.monitoring:9093

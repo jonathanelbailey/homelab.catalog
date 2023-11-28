@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/services/cert-manager-crds
+    path: devqa/services/cert-manager/crds
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'

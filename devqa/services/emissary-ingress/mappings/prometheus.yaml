@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: prometheus-ui
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: prometheus.internal.magiccityit.com
+  prefix: /
+  service: kube-prometheus-stack-prometheus.monitoring:9090

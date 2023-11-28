@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: emissary-apiext
+  name: emissary-hosts
   namespace: argocd
 spec:
   destination:
@@ -15,7 +15,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-    path: devqa/services/emissary-apiext/
+    path: devqa/services/emissary-ingress/hosts
     targetRevision: HEAD
   syncPolicy:
     automated:
