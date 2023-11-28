@@ -7,4 +7,4 @@ spec:
   ambassador_id: ["emissary"]
   host: grafana.internal.magiccityit.com
   prefix: /
-  service: kube-prometheus-stack-grafana.monitoring
+  service: kube-prom-stack-grafana.observability
