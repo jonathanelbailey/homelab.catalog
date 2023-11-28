@@ -19,7 +19,7 @@ spec:
           - >-
             $values/devqa/services/minio/override-values.yaml
       repoURL: https://operator.min.io
-      targetRevision: 4.3.7
+      targetRevision: 5.0.11
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
