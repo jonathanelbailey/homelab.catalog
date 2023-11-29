@@ -32,3 +32,5 @@ spec:
   host: minio-test-console.internal.magiccityit.com
   prefix: /
   service: https://test-console.test:9443
+  allow_upgrade:
+    - websocket
