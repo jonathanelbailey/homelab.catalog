@@ -10,17 +10,17 @@ spec:
   service: console.minio-operator:9090
   allow_upgrade:
     - websocket
-# ---
-# apiVersion: getambassador.io/v2
-# kind: Mapping
-# metadata:
-#   name: minio-test-s3-api
-#   namespace: emissary
-# spec:
-#   ambassador_id: ["emissary"]
-#   host: minio-test-s3.internal.magiccityit.com
-#   prefix: /
-#   service: https://minio.test.svc.cluster.local
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: minio-test-s3-api
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: minio-test-s3.internal.magiccityit.com
+  prefix: /
+  service: https://minio.test.svc.cluster.local
 ---
 apiVersion: getambassador.io/v2
 kind: Mapping
@@ -34,14 +34,14 @@ spec:
   service: https://test-console.test:9443
   allow_upgrade:
     - websocket
----
-apiVersion: getambassador.io/v2
-kind: TCPMapping
-metadata:
-  name: minio-test-s3
-  namespace: emissary
-spec:
-  ambassador_id: ["emissary"]
-  host: minio-test-console.internal.magiccityit.com
-  port: 443
-  service: https://minio.test.svc.cluster.local:443
+# ---
+# apiVersion: getambassador.io/v2
+# kind: TCPMapping
+# metadata:
+#   name: minio-test-s3
+#   namespace: emissary
+# spec:
+#   ambassador_id: ["emissary"]
+#   host: minio-test-console.internal.magiccityit.com
+#   port: 443
+#   service: https://minio.test.svc.cluster.local:443
