@@ -12,3 +12,33 @@ spec:
     authority: none
   tlsSecret:
     name: internal-magiccityit-domain-tls
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: minio-test-s3
+  namespace: emissary
+  annotations:
+      external-dns.ambassador-service: emissary-ingress.emissary
+spec:
+  ambassador_id: ["emissary"]
+  hostname: "minio-test-s3.internal.magiccityit.com"
+  acmeProvider:
+    authority: none
+  tlsSecret:
+    name: internal-magiccityit-domain-tls
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: minio-test-console
+  namespace: emissary
+  annotations:
+      external-dns.ambassador-service: emissary-ingress.emissary
+spec:
+  ambassador_id: ["emissary"]
+  hostname: "minio-test-console.internal.magiccityit.com"
+  acmeProvider:
+    authority: none
+  tlsSecret:
+    name: internal-magiccityit-domain-tls
