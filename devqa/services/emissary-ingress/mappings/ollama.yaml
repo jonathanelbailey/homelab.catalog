@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: ollama
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: ollama.internal.magiccityit.com
+  prefix: /
+  service: argocd-server.argocd
