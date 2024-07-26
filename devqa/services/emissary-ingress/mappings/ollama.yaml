@@ -8,5 +8,4 @@ spec:
   host: open-webui.internal.magiccityit.com
   prefix: /
   service: open-webui.ollama:80
-  allow_upgrade:
-  - websocket
+  timeout_ms: 0
