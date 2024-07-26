@@ -2,3 +2,5 @@ ollama:
   enabled: false
 ollamaUrls:
 - 127.0.0.1:11434
+persistence:
+  storageClass: microk8s-hostpath
