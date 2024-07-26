@@ -5,9 +5,10 @@ ollama:
     
     # -- GPU type: 'nvidia' or 'amd'
     type: 'nvidia'
+    nvidiaResource: ''
     
     # -- Specify the number of GPU to 1
-    number: 1
+    number: ''
    
   # -- List of models to pull at container startup
   models: 
