@@ -8,6 +8,8 @@ spec:
   host: argocd.internal.magiccityit.com
   prefix: /
   service: argocd-server.argocd:443
+  allow_upgrade:
+  - websocket
 ---
 apiVersion: getambassador.io/v2
 kind: Mapping
