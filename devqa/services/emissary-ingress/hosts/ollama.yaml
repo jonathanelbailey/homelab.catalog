@@ -7,7 +7,7 @@ metadata:
       external-dns.ambassador-service: emissary-ingress.emissary
 spec:
   ambassador_id: ["emissary"]
-  hostname: "ollama.internal.magiccityit.com"
+  hostname: "open-webui.internal.magiccityit.com"
   acmeProvider:
     authority: none
   tlsSecret:
