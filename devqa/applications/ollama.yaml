@@ -13,13 +13,13 @@ spec:
     path: devqa/services/ollama
     targetRevision: HEAD
   sources:
-    - chart: ollama
+    - chart: open-webui
       helm:
         valueFiles:
           - >-
             $values/devqa/services/ollama/override-values.yaml
-      repoURL: https://otwld.github.io/ollama-helm/
-      targetRevision: 0.46.0
+      repoURL: https://helm.openwebui.com/
+      targetRevision: 3.1.0
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
