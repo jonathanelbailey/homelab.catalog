@@ -5,6 +5,6 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: ollama.internal.magiccityit.com
+  host: open-webui.internal.magiccityit.com
   prefix: /
-  service: ollama.ollama:11434
+  service: open-webui.ollama:80
