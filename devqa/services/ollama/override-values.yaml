@@ -1,15 +1,4 @@
 ollama:
-  gpu:
-    # -- Enable GPU integration
-    enabled: true
-    
-    # -- GPU type: 'nvidia' or 'amd'
-    type: 'nvidia'
-
-    nvidiaResource: cpu
-
-    number: 4000m
-
-  # -- List of models to pull at container startup
-  models: 
-    - llama3.1
+  enabled: false
+ollamaUrls:
+- 127.0.0.1:11434
