@@ -12,6 +12,7 @@ spec:
       kind: '*'
       managedFieldsManagers:
         - clusterrole-aggregation-controller
+        - controller
   project: default
   sources:
     - chart: emissary-ingress
