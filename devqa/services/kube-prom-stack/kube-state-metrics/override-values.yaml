@@ -3,14 +3,13 @@ crds:
 
 ## Provide a name to substitute for the full names of resources
 ##
-fullnameOverride: "grafana"
+fullnameOverride: "kube-state-metrics"
 
-grafana:
-  defaultDashboardsTimezone: utc
-  sidecar:
-    datasources:
-      ## URL of prometheus datasource
-      url: http://kube-prom-stack-kube-prome-prometheus.observability:9090/
+## Component scraping kube state metrics
+##
+kube-state-metrics:
+  selfMonitor:
+    enabled: true
 
 defaultRules:
   create: false
@@ -20,6 +19,9 @@ global:
     create: false
 
 alertmanager:
+  enabled: false
+
+grafana:
   enabled: false
 
 ## Flag to disable all the kubernetes component scrapers
@@ -55,11 +57,6 @@ kubeScheduler:
 kubeProxy:
   enabled: false
 
-## Component scraping kube state metrics
-##
-kubeStateMetrics:
-  enabled: false
-
 ## Deploy node exporter as a daemonset to all nodes
 ##
 nodeExporter:
@@ -83,4 +80,3 @@ thanosRuler:
   ## Deploy thanosRuler
   ##
   enabled: false
-

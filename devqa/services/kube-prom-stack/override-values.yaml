@@ -6,10 +6,7 @@ crds:
 # fullnameOverride: "stack"
 
 grafana:
-  sidecar:
-    datasources:
-      ## URL of prometheus datasource
-      url: http://kube-prom-stack-kube-prome-prometheus.observability:9090/
+  enabled: false
 kube-state-metrics:
   selfMonitor:
     enabled: true
