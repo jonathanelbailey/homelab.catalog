@@ -8,10 +8,6 @@ spec:
     namespace: nvdp
     server: https://kubernetes.default.svc
   project: default
-  source:
-    repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/services/nvidia-device-plugin
-    targetRevision: HEAD
   sources:
     - chart: operator
       helm:
