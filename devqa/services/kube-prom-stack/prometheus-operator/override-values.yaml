@@ -5,6 +5,7 @@
 crds:
   enabled: false
 
+fullnameOverride: "operator"
 
 prometheusOperator:
   enabled: true
