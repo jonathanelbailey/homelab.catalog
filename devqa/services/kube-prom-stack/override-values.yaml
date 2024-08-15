@@ -7,6 +7,8 @@ crds:
 
 grafana:
   enabled: false
+alertmanager:
+  enabled: false
 kube-state-metrics:
   enabled: false
 nodeExporter:
