@@ -3,17 +3,9 @@ crds:
 
 ## Provide a name to substitute for the full names of resources
 ##
-fullnameOverride: "prometheus"
+fullnameOverride: "stack"
 
 grafana:
-  enabled: false
-alertmanager:
-  enabled: false
-defaultRules:
-  create: false
-kube-state-metrics:
-  enabled: false
-nodeExporter:
   enabled: false
 prometheus:
   prometheusSpec:
