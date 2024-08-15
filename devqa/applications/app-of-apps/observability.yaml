@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
   - repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/applications/emissary-ingress
+    path: devqa/applications/kube-prom-stack
     targetRevision: HEAD
   syncPolicy:
     automated:
