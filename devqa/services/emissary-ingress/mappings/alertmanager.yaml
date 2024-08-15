@@ -7,4 +7,4 @@ spec:
   ambassador_id: ["emissary"]
   host: alertmanager.internal.magiccityit.com
   prefix: /
-  service: alertmanager.observability:9093
+  service: alertmanager-alertmanager.observability:9093
