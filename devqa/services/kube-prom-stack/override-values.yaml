@@ -8,8 +8,7 @@ crds:
 grafana:
   enabled: false
 kube-state-metrics:
-  selfMonitor:
-    enabled: true
+  enabled: false
 prometheus-node-exporter:
   hostRootFsMount:
     enabled: false

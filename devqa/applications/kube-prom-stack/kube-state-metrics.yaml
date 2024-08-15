@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-state-metrics
+  namespace: argocd
+spec:
+  destination:
+    namespace: observability
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
+    path: devqa/services/minio
+    targetRevision: HEAD
+  sources:
+    - chart: kube-prometheus-stack
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/kube-prom-stack/kube-state-metrics/override-values.yaml
+      repoURL: https://prometheus-community.github.io/helm-charts
+      targetRevision: 54.2.2
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
