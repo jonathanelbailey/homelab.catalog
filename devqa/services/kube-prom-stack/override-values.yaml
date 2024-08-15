@@ -7,6 +7,16 @@ fullnameOverride: "stack"
 
 grafana:
   enabled: false
+nodeExporter:
+  enabled: true
+  operatingSystems:
+    linux:
+      enabled: true
+    darwin:
+      enabled: false
+prometheus-node-exporter:
+  hostRootFsMount:
+    enabled: false
 prometheus:
   prometheusSpec:
     additionalScrapeConfigs:
