@@ -10,7 +10,7 @@ grafana:
   sidecar:
     datasources:
       ## URL of prometheus datasource
-      url: http://prometheus-prometheus.observability:9090/
+      url: http://stack-prometheus.observability:9090/
 
 defaultRules:
   create: false
