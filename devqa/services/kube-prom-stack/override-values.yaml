@@ -7,6 +7,9 @@ fullnameOverride: "stack"
 
 grafana:
   enabled: false
+kube-state-metrics:
+  selfMonitor:
+    enabled: true
 nodeExporter:
   enabled: true
   operatingSystems:
