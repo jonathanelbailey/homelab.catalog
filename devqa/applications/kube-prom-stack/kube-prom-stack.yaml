@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prom-stack
+  name: prometheus
   namespace: argocd
 spec:
   destination:
