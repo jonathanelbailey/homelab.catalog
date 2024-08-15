@@ -7,5 +7,5 @@ spec:
   ambassador_id: ["emissary"]
   host: open-webui.internal.magiccityit.com
   prefix: /
-  service: open-webui.ollama:80
+  service: open-webui.open-webui:80
   timeout_ms: 0
