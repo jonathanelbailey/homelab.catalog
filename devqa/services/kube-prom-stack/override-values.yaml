@@ -15,8 +15,6 @@ kube-state-metrics:
   enabled: false
 nodeExporter:
   enabled: false
-kubernetesServiceMonitors:
-  enabled: false
 prometheus:
   prometheusSpec:
     additionalScrapeConfigs:
