@@ -9,9 +9,8 @@ grafana:
   enabled: false
 kube-state-metrics:
   enabled: false
-prometheus-node-exporter:
-  hostRootFsMount:
-    enabled: false
+nodeExporter:
+  enabled: false
 prometheus:
   prometheusSpec:
     additionalScrapeConfigs:
