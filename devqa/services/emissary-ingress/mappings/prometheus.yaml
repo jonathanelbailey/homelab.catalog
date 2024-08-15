@@ -7,4 +7,4 @@ spec:
   ambassador_id: ["emissary"]
   host: prometheus.internal.magiccityit.com
   prefix: /
-  service: kube-prom-stack-kube-prome-prometheus.observability:9090
+  service: prometheus-prometheus.observability:9090
