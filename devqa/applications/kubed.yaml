@@ -14,9 +14,9 @@ spec:
     targetRevision: v0.13.2
     helm:
       parameters:
-      - name: registry
+      - name: operator.registry
         value: rancher
-      - name: image
+      - name: operator.repository
         value: mirrored-appscode-kubed
   syncPolicy:
     automated:
