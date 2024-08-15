@@ -12,9 +12,7 @@ spec:
       kind: '*'
       managedFieldsManagers:
         - clusterrole-aggregation-controller
-    - kind: Service
-      jqPathExpressions:
-        - '.status.loadBalancer.ingress[].ipMode'
+        - controller
   project: default
   sources:
     - chart: emissary-ingress
