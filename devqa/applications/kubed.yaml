@@ -12,6 +12,12 @@ spec:
     chart: kubed
     repoURL: https://charts.appscode.com/stable/
     targetRevision: v0.13.2
+    helm:
+      parameters:
+      - name: registry
+        value: rancher
+      - name: image
+        value: mirrored-appscode-kubed
   syncPolicy:
     automated:
       prune: true
