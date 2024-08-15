@@ -1,3 +1,10 @@
+crds:
+  enabled: false
+
+## Provide a name to substitute for the full names of resources
+##
+# fullnameOverride: "stack"
+
 grafana:
   sidecar:
     datasources:
