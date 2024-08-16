@@ -1,3 +1,13 @@
+# compatWithCPUManager: null
+# migStrategy: null
+# failOnInitError: true
+# deviceListStrategy: envvar
+# deviceIDStrategy: uuid
+# nvidiaDriverRoot: /
+# gdsEnabled: false
+# mofedEnabled: false
+# deviceDiscoveryStrategy: all
+
 gfd:
   enabled: true
 # nfd:
