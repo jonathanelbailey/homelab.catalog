@@ -23,6 +23,11 @@ spec:
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - argocd-controller
   syncPolicy:
     automated:
       prune: true
@@ -35,3 +40,4 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
