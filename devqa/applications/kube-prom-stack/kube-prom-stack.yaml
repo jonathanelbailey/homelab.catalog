@@ -27,7 +27,7 @@ spec:
     - group: '*'
       kind: '*'
       managedFieldsManagers:
-        - argocd-controller
+        - PrometheusOperator
   syncPolicy:
     automated:
       prune: true
