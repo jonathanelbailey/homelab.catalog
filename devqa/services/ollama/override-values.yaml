@@ -25,7 +25,7 @@ ollama:
   persistentVolume:
     enabled: true
     storageClass: "microk8s-hostpath"
-    # size: 50Gi
+    size: 50Gi
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
@@ -42,7 +42,7 @@ resources:
     cpu: 500m
 persistence:
   enabled: true
-  # size: 20Gi
+  size: 20Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
   existingClaim: ""
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
