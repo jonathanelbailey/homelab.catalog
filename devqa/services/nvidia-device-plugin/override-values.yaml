@@ -1,6 +1,6 @@
 gfd:
   enabled: true
-nfd:
-  nameOverride: node-feature-discovery
-  enableNodeFeatureApi: true
+# nfd:
+#   nameOverride: node-feature-discovery
+#   enableNodeFeatureApi: true
 runtimeClassName: nvidia
