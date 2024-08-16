@@ -60,8 +60,11 @@ prometheus:
           selector: {}
     # ruleSelector:
     #   any: true
+    serviceMonitorSelectorNilUsesHelmValues: true
     # serviceMonitorSelector:
-    #   any: true
+    #   monitoring: prometheus
+    # serviceMonitorNamespaceSelector:
+    #   monitoring: prometheus
     # podMonitorSelector:
     #   any: true
     # probeSelector:

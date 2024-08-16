@@ -2,6 +2,11 @@ fullnameOverride: dcgm-exporter
 runtimeClassName: nvidia
 serviceMonitor:
   enabled: true
+  interval: 15s
+  honorLabels: true
+  # additionalLabels:
+  #   monitoring: prometheus
+  relabelings: []
 extraEnv:
 - name: DCGM_EXPORTER_COLLECTORS
   value: /etc/dcgm-exporter/dcp-metrics-included.csv
