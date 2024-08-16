@@ -6,11 +6,15 @@ crds:
 fullnameOverride: "grafana"
 
 grafana:
-  defaultDashboardsTimezone: utc
+  defaultDashboardsTimezone: browser
   sidecar:
+    dashboards:
+      provider:
+        allowUiUpdates: true
     datasources:
       ## URL of prometheus datasource
       url: http://stack-prometheus.observability:9090/
+      
 
 defaultRules:
   create: false
