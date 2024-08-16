@@ -1,0 +1,4 @@
+fullnameOverride: dcgm-exporter
+runtimeClassName: nvidia
+serviceMonitor:
+  enabled: true

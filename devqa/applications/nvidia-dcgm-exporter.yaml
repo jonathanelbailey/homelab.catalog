@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-dcgm-exporter
+  namespace: argocd
+spec:
+  destination:
+    namespace: nvdp
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: dcgm-exporter
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/nvidia-dcgm-exporter/override-values.yaml
+      repoURL: https://nvidia.github.io/dcgm-exporter/helm-charts
+      targetRevision: 3.5.0
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
