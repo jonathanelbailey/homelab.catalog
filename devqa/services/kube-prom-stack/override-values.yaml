@@ -58,13 +58,13 @@ prometheus:
             requests:
               storage: 50Gi
           selector: {}
-    ruleSelector:
-      any: true
-    serviceMonitorSelector:
-      any: true
-    podMonitorSelector:
-      any: true
-    probeSelector:
-      any: true
-    scrapeConfigSelector:
-      any: true
+    # ruleSelector:
+    #   any: true
+    # serviceMonitorSelector:
+    #   any: true
+    # podMonitorSelector:
+    #   any: true
+    # probeSelector:
+    #   any: true
+    # scrapeConfigSelector:
+    #   any: true
