@@ -1,5 +1,5 @@
-# gfd:
-#   enabled: true
+gfd:
+  enabled: true
 # nfd:
 #   nameOverride: node-feature-discovery
 #   enableNodeFeatureApi: true
