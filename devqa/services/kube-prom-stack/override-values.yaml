@@ -5,6 +5,18 @@ crds:
 ##
 fullnameOverride: "stack"
 
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "microk8s-hostpath"
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
+          selector: {}
+
 grafana:
   enabled: false
 kube-state-metrics:
@@ -21,9 +33,31 @@ prometheus-node-exporter:
   hostRootFsMount:
     enabled: false
 
+cleanPrometheusOperatorObjectNames: true
 
 prometheus:
   prometheusSpec:
+    exemplars: ""
+      ## Maximum number of exemplars stored in memory for all series.
+      ## If not set, Prometheus uses its default value.
+      ## A value of zero or less than zero disables the storage.
+      maxSize: 100000
+
+    # EnableFeatures API enables access to Prometheus disabled features.
+    # ref: https://prometheus.io/docs/prometheus/latest/disabled_features/
+    enableFeatures: 
+    - exemplar-storage
+
+    retention: 90d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "microk8s-hostpath"
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+          selector: {}
     ruleSelector:
       any: true
     serviceMonitorSelector:
