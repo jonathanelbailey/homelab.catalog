@@ -2,3 +2,14 @@ fullnameOverride: dcgm-exporter
 runtimeClassName: nvidia
 serviceMonitor:
   enabled: true
+extraEnv:
+- name: DCGM_EXPORTER_COLLECTORS
+  value: /etc/dcgm-exporter/dcp-metrics-included.csv
+- name: NVIDIA_VISIBLE_DEVICES
+  value: all
+- name: NVIDIA_MIG_CONFIG_DEVICES
+  value: all
+- name: NVIDIA_MIG_MONITOR_DEVICES
+  value: all
+- name: NVIDIA_DRIVER_CAPABILITIES
+  value: all
