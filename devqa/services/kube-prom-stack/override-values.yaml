@@ -37,7 +37,7 @@ cleanPrometheusOperatorObjectNames: true
 
 prometheus:
   prometheusSpec:
-    exemplars: ""
+    exemplars: 
       ## Maximum number of exemplars stored in memory for all series.
       ## If not set, Prometheus uses its default value.
       ## A value of zero or less than zero disables the storage.
