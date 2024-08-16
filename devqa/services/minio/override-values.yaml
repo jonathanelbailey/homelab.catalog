@@ -4,3 +4,6 @@ rootPassword: "G33kw33k!"
 replicas: 1
 persistence:
   size: 50Gi
+resources:
+  requests:
+    memory: 16Gi

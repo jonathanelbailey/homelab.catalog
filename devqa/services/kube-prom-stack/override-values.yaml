@@ -7,6 +7,10 @@ fullnameOverride: "prometheus"
 
 alertmanager:
   alertmanagerSpec:
+    resources:
+      requests:
+        memory: 400Mi
+        cpu: 200m
     storage:
       volumeClaimTemplate:
         spec:
@@ -37,6 +41,10 @@ cleanPrometheusOperatorObjectNames: true
 
 prometheus:
   prometheusSpec:
+    resources:
+      requests:
+        memory: 16384Mi
+        cpu: 2000m
     exemplars: 
       ## Maximum number of exemplars stored in memory for all series.
       ## If not set, Prometheus uses its default value.
