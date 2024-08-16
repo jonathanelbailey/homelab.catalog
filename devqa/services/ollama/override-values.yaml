@@ -9,6 +9,10 @@ ollama:
   fullnameOverride: "open-webui-ollama"
   # -- Example Ollama configuration with nvidia GPU enabled, automatically downloading a model, and deploying a PVC for model persistence
   ollama:
+    resources:
+      requests:
+        memory: 16384Mi
+        cpu: 2000m
     gpu:
       enabled: true
       type: 'nvidia'
