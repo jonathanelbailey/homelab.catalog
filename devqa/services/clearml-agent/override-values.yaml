@@ -210,7 +210,7 @@ agentk8sglue:
 # -- Sessions internal service configuration
 sessions:
   # -- Enable/Disable sessions portmode WARNING: only one Agent deployment can have this set to true
-  portModeEnabled: false
+  portModeEnabled: true
   # -- specific annotations for session services
   svcAnnotations: {}
   # -- service type ("NodePort" or "ClusterIP" or "LoadBalancer")
