@@ -89,7 +89,7 @@ clearml_serving_triton:
 
 # -- Configuration from https://github.com/bitnami/charts/blob/main/bitnami/kafka/values.yaml
 kafka:
-  enabled: true
+  enabled: false
 
 # -- Configuration from https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 prometheus:
