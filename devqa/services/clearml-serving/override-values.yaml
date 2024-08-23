@@ -39,7 +39,7 @@ clearml_serving_statistics:
   # -- reference for files declared in existing ConfigMap will be mounted and read by pod (examples in values.yaml)
   existingAdditionalConfigsConfigMap: ""
   # -- reference for files declared in existing Secret will be mounted and read by pod (examples in values.yaml) if not overridden by existingAdditionalConfigsConfigMap
-  existingAdditionalConfigsSecret: ""
+  existingAdditionalConfigsSecret: "clearml-serving"
   # -- files declared in this parameter will be mounted on internal folder /opt/clearml/config and read by pod (examples in values.yaml) if not overridden by existingAdditionalConfigsSecret
   additionalConfigs: {}
   #   additionalFile.conf: |
