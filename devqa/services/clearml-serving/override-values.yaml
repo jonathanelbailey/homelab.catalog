@@ -8,11 +8,11 @@ clearml:
   apiSecretName: clearml-serving
   apiAccessKey: "ClearML API Access Key"
   apiSecretKey: "ClearML API Secret Key"
-  apiHost: https://app.clear.ml/
+  apiHost: https://app.clear.ml
   filesHost: https://files.clear.ml
-  webHost: https://app.clear.ml/
+  webHost: https://app.clear.ml
   defaultBaseServeUrl: http://127.0.0.1:8080/serve
-  servingTaskId: "ClearML Serving Task ID"
+  servingTaskId: "WP Model Serving"
   kafkaServeUrl: ""
 
 # -- ClearML serving statistics configurations
@@ -89,7 +89,7 @@ clearml_serving_triton:
 
 # -- Configuration from https://github.com/bitnami/charts/blob/main/bitnami/kafka/values.yaml
 kafka:
-  enabled: false
+  enabled: true
 
 # -- Configuration from https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 prometheus:
