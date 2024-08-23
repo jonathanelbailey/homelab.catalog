@@ -80,20 +80,6 @@ clearml_serving_inference:
     maxReplicas: 11
     targetCPU: 50
     targetMemory: 50
-  # -- Ingress exposing configurations
-  ingress:
-    # -- Enable/Disable ingress
-    enabled: false
-    # -- ClassName (must be defined if no default ingressClassName is available)
-    ingressClassName: ""
-    # -- Ingress hostname domain
-    hostName: "serving.clearml.127-0-0-1.nip.io"
-    # -- Reference to secret containing TLS certificate. If set, it enables HTTPS on ingress rule.
-    tlsSecretName: ""
-    # -- Ingress annotations
-    annotations: {}
-    # -- Ingress root path url
-    path: "/"
 
 # -- ClearML serving Triton configurations
 clearml_serving_triton:
