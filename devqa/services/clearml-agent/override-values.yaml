@@ -218,6 +218,6 @@ sessions:
   # -- External IP sessions clients can connect to
   externalIP: clearml-agent.internal.magiccityit.com
   # -- starting range of exposed NodePorts
-  startingPort: 30000
+  startingPort: 10022
   # -- maximum number of NodePorts exposed
-  maxServices: 20
+  maxServices: 1
