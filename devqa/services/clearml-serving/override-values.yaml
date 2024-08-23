@@ -8,9 +8,9 @@ clearml:
   apiSecretName: clearml-serving
   apiAccessKey: "ClearML API Access Key"
   apiSecretKey: "ClearML API Secret Key"
-  apiHost: http://clearml-server-apiserver:8008
-  filesHost: http://clearml-server-fileserver:8081
-  webHost: http://clearml-server-webserver:80
+  apiHost: https://app.clear.ml/
+  filesHost: https://files.clear.ml
+  webHost: https://app.clear.ml/
   defaultBaseServeUrl: http://127.0.0.1:8080/serve
   servingTaskId: "ClearML Serving Task ID"
   kafkaServeUrl: ""
