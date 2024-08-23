@@ -12,7 +12,7 @@ clearml:
   filesHost: https://files.clear.ml
   webHost: https://app.clear.ml
   defaultBaseServeUrl: http://127.0.0.1:8080/serve
-  servingTaskId: "WP Model Serving"
+  servingTaskId: "5920520551c24927b49890ad3e89cdfc"
   kafkaServeUrl: ""
 
 # -- ClearML serving statistics configurations
