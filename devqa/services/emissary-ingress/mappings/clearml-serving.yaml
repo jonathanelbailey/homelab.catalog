@@ -9,4 +9,6 @@ spec:
   prefix: /
   service: clearml-serving-inference.clearml:8080
   timeout_ms: 10000
-  connect_timeout_ms: 10000
+  retry_policy:
+    retry_on: "5xx"
+    num_retries: 10
