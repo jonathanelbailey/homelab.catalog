@@ -7,4 +7,4 @@ spec:
   ambassador_id: ["emissary"]
   host: clearml-serving.internal.magiccityit.com
   prefix: /
-  service: clearml-serving-inference.clearml:10022
+  service: clearml-agent.clearml:10022
