@@ -5,6 +5,6 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: clearml-serving.internal.magiccityit.com
+  host: clearml-agent.internal.magiccityit.com
   prefix: /
   service: clearml-agent.clearml:10022
