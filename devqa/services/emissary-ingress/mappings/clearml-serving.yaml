@@ -8,3 +8,4 @@ spec:
   host: clearml-serving.internal.magiccityit.com
   prefix: /
   service: clearml-serving-inference.clearml:8080
+  timeout_ms: 10000
