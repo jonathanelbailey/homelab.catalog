@@ -12,4 +12,4 @@ spec:
   retry_policy:
     retry_on: "5xx"
     num_retries: 10
-    per_try_timeout: 5000
+    per_try_timeout: "5000ms"
