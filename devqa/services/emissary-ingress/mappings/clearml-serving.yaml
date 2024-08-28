@@ -8,7 +8,8 @@ spec:
   host: clearml-serving.internal.magiccityit.com
   prefix: /
   service: clearml-serving-inference.clearml:8080
-  # timeout_ms: 10000
-  # retry_policy:
-  #   retry_on: "5xx"
-  #   num_retries: 10
+  timeout_ms: 10000
+  retry_policy:
+    retry_on: "5xx"
+    num_retries: 10
+    per_try_timeout: 5000
