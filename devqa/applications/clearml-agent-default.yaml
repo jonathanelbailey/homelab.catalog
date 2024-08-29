@@ -1,22 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clearml-agent
+  name: clearml-agent-default
   namespace: argocd
 spec:
   destination:
     namespace: clearml
     server: https://kubernetes.default.svc
   project: default
-  source:
-    repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/services/clearml-agent
-    targetRevision: HEAD
   sources:
     - helm:
         valueFiles:
           - >-
-            $values/devqa/services/clearml-agent/override-values.yaml
+            $values/devqa/services/clearml-agent/default/override-values.yaml
       repoURL: https://github.com/jonathanelbailey/clearml-helm-charts
       path: charts/clearml-agent
       targetRevision: HEAD

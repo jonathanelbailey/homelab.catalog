@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clearml-agent-services
+  namespace: argocd
+spec:
+  destination:
+    namespace: clearml
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/clearml-agent/services/override-values.yaml
+      repoURL: https://github.com/jonathanelbailey/clearml-helm-charts
+      path: charts/clearml-agent
+      targetRevision: HEAD
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
