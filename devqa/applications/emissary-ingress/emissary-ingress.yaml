@@ -39,5 +39,5 @@ spec:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
     managedNamespaceMetadata:
-      labels:
+      annotations:
         cert-manager-tls: emissary

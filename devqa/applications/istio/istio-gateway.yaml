@@ -28,5 +28,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
     managedNamespaceMetadata:
-      labels:
+      annotations:
         cert-manager-tls: istio
