@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
       - name: cassandra.persistence.enabled
-        value: true
+        value: "true"
   syncPolicy:
     automated:
       prune: true
