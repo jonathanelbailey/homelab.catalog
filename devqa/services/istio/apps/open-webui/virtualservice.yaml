@@ -8,9 +8,6 @@ spec:
   gateways:
   - istio-ingress/internal-magiccityit-gateway
   http:
-  - match:
-    - uri:
-        exact: /
     route:
     - destination:
         host: open-webui
