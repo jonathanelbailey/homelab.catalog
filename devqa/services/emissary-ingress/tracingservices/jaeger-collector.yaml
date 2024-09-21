@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v3alpha1
+kind: TracingService
+metadata:
+  name: jaeger-collector
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  service: "jaeger-tracing-collector.jaeger-tracing:9411"
+  driver: zipkin
+  config: {}
