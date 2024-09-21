@@ -8,15 +8,17 @@ spec:
     namespace: istio-system
     server: https://kubernetes.default.svc
   project: default
-  source:
-    chart: istiod
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.23.2
-  ignoreDifferences:
-    - group: '*'
-      kind: '*'
-      managedFieldsManagers:
-        - pilot-discovery
+  sources:
+    - chart: istiod
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/istiod/override-values.yaml
+      repoURL: https://istio-release.storage.googleapis.com/charts
+      targetRevision: 1.23.2
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
@@ -29,4 +31,3 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
-      - RespectIgnoreDifferences=true
