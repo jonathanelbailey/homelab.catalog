@@ -12,6 +12,11 @@ spec:
     chart: base
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.23.2
+  ignoreDifferences:
+    - group: '*'
+      kind: '*'
+      managedFieldsManagers:
+        - pilot-discovery
   syncPolicy:
     automated:
       prune: true
@@ -24,3 +29,4 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
