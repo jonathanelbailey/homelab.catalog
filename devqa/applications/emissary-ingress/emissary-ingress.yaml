@@ -25,6 +25,9 @@ spec:
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
+    - path: devqa/services/emissary-ingress/tracingservices
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
