@@ -24,6 +24,9 @@ spec:
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
   syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        istio-injection: enabled
     automated:
       prune: true
       selfHeal: true
