@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: devqa/services/jaeger-tracing
-    repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-    targetRevision: HEAD
+    chart: jaeger
+    repoURL: https://jaegertracing.github.io/helm-charts
+    targetRevision: 1.53.0
   syncPolicy:
     automated:
       prune: true
@@ -22,5 +22,3 @@ spec:
         factor: 2
         maxDuration: 3m0s
       limit: 2
-    syncOptions:
-      - CreateNamespace=true
