@@ -6,7 +6,7 @@ spec:
   hosts:
   - "open-webui.internal.magiccityit.com"
   gateways:
-  - open-webui-gateway
+  - internal-magiccityit-gateway
   http:
   - match:
     - uri:
