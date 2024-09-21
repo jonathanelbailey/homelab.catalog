@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: open-webui
+spec:
+  hosts:
+  - "open-webui.internal.magiccityit.com"
+  gateways:
+  - open-webui-gateway
+  http:
+  - match:
+    - uri:
+        exact: /
+    route:
+    - destination:
+        host: open-webui
+        port:
+          number: 80
