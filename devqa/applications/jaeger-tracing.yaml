@@ -8,16 +8,17 @@ spec:
     namespace: jaeger-tracing
     server: https://kubernetes.default.svc
   project: default
-  source:
-    chart: jaeger
-    repoURL: https://jaegertracing.github.io/helm-charts
-    targetRevision: 3.3.1
-    helm:
-      parameters:
-      - name: cassandra.persistence.enabled
-        value: "true"
-      - name: storage.cassandra.host
-        value: jaeger-tracing-cassandra
+  sources:
+    - chart: jaeger
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/jaeger-tracing/override-values.yaml
+      repoURL: https://jaegertracing.github.io/helm-charts
+      targetRevision: 3.3.1
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true

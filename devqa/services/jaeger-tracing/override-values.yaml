@@ -1,0 +1,111 @@
+storage:
+  # allowed values (cassandra, elasticsearch, grpc-plugin, badger, memory)
+  type: cassandra
+  cassandra:
+    host: jaeger-tracing-cassandra
+    port: 9042
+
+# Begin: Override values on the Cassandra subchart to customize for Jaeger
+cassandra:
+  persistence:
+    # To enable persistence, please see the documentation for the Cassandra chart
+    enabled: true
+
+# Begin: Default values for the various components of Jaeger
+# This chart has been based on the Kubernetes integration found in the following repo:
+# https://github.com/jaegertracing/jaeger-kubernetes/blob/main/production/jaeger-production-template.yml
+#
+# This is the jaeger-cassandra-schema Job which sets up the Cassandra schema for
+# use by Jaeger
+schema:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 256m
+      memory: 128Mi
+
+agent:
+  service:
+    # zipkinThriftPort :accept zipkin.thrift over compact thrift protocol
+    zipkinThriftPort: 5775
+    # compactPort: accept jaeger.thrift over compact thrift protocol
+    compactPort: 6831
+    # binaryPort: accept jaeger.thrift over binary thrift protocol
+    binaryPort: 6832
+    # samplingPort: (HTTP) serve configs, sampling strategies
+    samplingPort: 5778
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 256m
+      memory: 128Mi
+
+  serviceMonitor:
+    enabled: true
+
+collector:
+  extraEnv:
+  - name: COLLECTOR_ZIPKIN_HOST_PORT
+    value: ":9411"
+  service:
+    grpc:
+      port: 14250
+    # httpPort: can accept spans directly from clients in jaeger.thrift format
+    http:
+      port: 14268
+    # can accept Zipkin spans in JSON or Thrift
+    zipkin:
+      port: 9411
+    otlp:
+      grpc:
+        name: otlp-grpc
+        port: 4317
+        # nodePort:
+      http:
+        name: otlp-http
+        port: 4318
+  resources:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  priorityClassName: ""
+  serviceMonitor:
+    enabled: true
+
+query:
+  enabled: true
+  basePath: /
+  agentSidecar:
+    enabled: true
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 256m
+        memory: 128Mi
+
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+    admin:
+      name: admin
+      targetPort: admin
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+       cpu: 256m
+       memory: 128Mi
+
+  serviceMonitor:
+    enabled: true
