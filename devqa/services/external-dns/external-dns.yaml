@@ -15,6 +15,9 @@ rules:
 - apiGroups: ["extensions","networking.k8s.io", "getambassador.io"]
   resources: ["ingresses", "hosts"]
   verbs: ["get","watch","list"]
+- apiGroups: ["networking.istio.io"]
+  resources: ["gateways", "virtualservices"]
+  verbs: ["get","watch","list"]
 - apiGroups: [""]
   resources: ["nodes"]
   verbs: ["list","watch"]
@@ -62,6 +65,7 @@ spec:
         - --source=service
         - --source=ingress
         - --source=ambassador-host
+        - --source=istio-gateway
         # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
         # You don't need to set this flag, but if you leave it unset, you will receive warning
         # logs when ExternalDNS attempts to create TXT records.

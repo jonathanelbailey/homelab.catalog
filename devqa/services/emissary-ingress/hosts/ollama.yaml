@@ -3,8 +3,8 @@ kind: Host
 metadata:
   name: ollama
   namespace: emissary
-  annotations:
-      external-dns.ambassador-service: emissary-ingress.emissary
+  # annotations:
+  #   external-dns.ambassador-service: emissary-ingress.emissary
 spec:
   ambassador_id: ["emissary"]
   hostname: "open-webui.internal.magiccityit.com"
