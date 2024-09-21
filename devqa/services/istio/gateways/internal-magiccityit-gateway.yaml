@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: open-webui-gateway
+  name: internal-magiccityit-gateway
 spec:
   # The selector matches the ingress gateway pod labels.
   # If you installed Istio using Helm following the standard documentation, this would be "istio=ingress"
@@ -16,4 +16,4 @@ spec:
       mode: SIMPLE
       credentialName: internal-magiccityit-domain-tls
     hosts:
-    - "open-webui.internal.magiccityit.com"
+    - "*.internal.magiccityit.com"
