@@ -13,7 +13,7 @@ spec:
       helm:
         valueFiles:
           - >-
-            $values/devqa/services/istiod/override-values.yaml
+            $values/devqa/services/istio/istiod/override-values.yaml
       repoURL: https://istio-release.storage.googleapis.com/charts
       targetRevision: 1.23.2
     - ref: values
