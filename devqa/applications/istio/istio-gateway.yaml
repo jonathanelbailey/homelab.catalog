@@ -28,5 +28,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
     managedNamespaceMetadata:
-      annotations:
-        cert-manager-tls: istio
+      labels:
+        cert-manager-tls: internal-magiccityit-domain

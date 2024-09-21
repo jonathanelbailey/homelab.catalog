@@ -39,5 +39,5 @@ spec:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
     managedNamespaceMetadata:
-      annotations:
-        cert-manager-tls: emissary
+      labels:
+        cert-manager-tls: internal-magiccityit-domain

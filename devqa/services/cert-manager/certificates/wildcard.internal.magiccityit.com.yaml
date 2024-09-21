@@ -13,5 +13,4 @@ spec:
     - "*.internal.magiccityit.com"
   secretTemplate:
     annotations:
-      kubed.appscode.com/sync: "cert-manager-tls=istio"
-      kubed.appscode.com/sync: "cert-manager-tls=emissary"
+      kubed.appscode.com/sync: "cert-manager-tls=internal-magiccityit-domain"
