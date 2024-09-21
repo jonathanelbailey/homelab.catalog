@@ -10,11 +10,18 @@ spec:
     istio: gateway # use istio default controller
   servers:
   - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*.internal.magiccityit.com"
+  - port:
       number: 443
       name: https
       protocol: HTTPS
     tls:
       mode: SIMPLE
       credentialName: internal-magiccityit-domain-tls
+      httpsRedirect: true
     hosts:
     - "*.internal.magiccityit.com"
