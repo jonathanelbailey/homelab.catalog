@@ -30,3 +30,6 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
+    managedNamespaceMetadata:
+      labels:
+        cert-manager-tls: istio
