@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: jaeger-query
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: jaeger.internal.magiccityit.com
+  prefix: /
+  service: jaeger-tracing-query.jaeger-tracing
