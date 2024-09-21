@@ -86,6 +86,7 @@ prometheus:
     #   monitoring: prometheus
     # serviceMonitorNamespaceSelector:
     #   monitoring: prometheus
+    podMonitorSelectorNilUsesHelmValues: false
     # podMonitorSelector:
     #   any: true
     # probeSelector:
