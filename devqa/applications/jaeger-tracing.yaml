@@ -16,6 +16,8 @@ spec:
       parameters:
       - name: cassandra.persistence.enabled
         value: "true"
+      - name: storage.cassandra.host
+        value: jaeger-tracing-cassandra
   syncPolicy:
     automated:
       prune: true
