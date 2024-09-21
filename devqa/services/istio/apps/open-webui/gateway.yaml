@@ -12,5 +12,8 @@ spec:
       number: 443
       name: https
       protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: internal-magiccityit-domain-tls
     hosts:
     - "open-webui.internal.magiccityit.com"
