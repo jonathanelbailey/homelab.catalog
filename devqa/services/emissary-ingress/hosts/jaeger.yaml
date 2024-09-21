@@ -7,7 +7,6 @@ metadata:
       external-dns.ambassador-service: emissary-ingress.emissary
 spec:
   ambassador_id: ["emissary"]
-  host: jaeger.internal.magiccityit.com
   hostname: "jaeger.internal.magiccityit.com"
   acmeProvider:
     authority: none

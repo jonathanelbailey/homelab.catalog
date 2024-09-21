@@ -12,6 +12,10 @@ spec:
       kind: '*'
       managedFieldsManagers:
         - clusterrole-aggregation-controller
+    - group: getambassador.io
+      kind: Mapping
+      jsonPointers:
+      - /spec/host
   project: default
   source:
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
