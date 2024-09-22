@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: clearml-serving
+  namespace: clearml
+spec:
+  hosts:
+  - "clearml-serving.internal.magiccityit.com"
+  gateways:
+  - istio-ingress/internal-magiccityit-gateway
+  http:
+  - route:
+    - destination:
+        host: clearml-serving-inference
+        port:
+          number: 8080
