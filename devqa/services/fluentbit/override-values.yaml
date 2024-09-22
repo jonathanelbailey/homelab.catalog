@@ -5,8 +5,8 @@ rbac:
   eventsAccess: true
 serviceMonitor:
   enabled: true
-prometheusRule:
-  enabled: true
+# prometheusRule:
+#   enabled: true
 
 resources:
   limits:
