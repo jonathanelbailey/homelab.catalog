@@ -10,7 +10,6 @@ podAnnotations:
   # into /etc/istio-certs, which will be mounted below. Though this annotation is placed on the
   # Emissary-ingress pods, it is interpreted by Istio.
   proxy.istio.io/config: |
-    # holdApplicationUntilProxyStarts: true
     proxyMetadata:
       OUTPUT_CERTS: /etc/istio-certs
       SECRET_TTL: 1m
