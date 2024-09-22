@@ -7,4 +7,4 @@ spec:
   ambassador_id: ["emissary"]
   host: kiali.internal.magiccityit.com
   prefix: /
-  service: kiali.kiali
+  service: kiali.kiali:20001
