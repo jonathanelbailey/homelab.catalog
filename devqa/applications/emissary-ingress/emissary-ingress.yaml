@@ -30,7 +30,7 @@ spec:
     - path: devqa/services/emissary-ingress/tracingservices
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
-    - path: devqa/services/emissary-ingress/istio-integration
+    - path: devqa/services/emissary-ingress/istio-integration/istio-upstream.yaml
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
   syncPolicy:
