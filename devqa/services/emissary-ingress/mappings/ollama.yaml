@@ -1,4 +1,4 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: ollama
@@ -9,3 +9,4 @@ spec:
   prefix: /
   service: open-webui.open-webui:80
   timeout_ms: 0
+  tls: istio-upstream
