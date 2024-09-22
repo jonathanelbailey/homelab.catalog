@@ -9,4 +9,4 @@ spec:
   prefix: /
   service: clearml-serving-inference.clearml:8080
   timeout_ms: 10000
-  # tls: istio-upstream
+  tls: istio-upstream
