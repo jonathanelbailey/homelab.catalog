@@ -22,6 +22,9 @@ spec:
     - path: devqa/services/istio/monitoring
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
+    - path: devqa/services/istio/policies
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   ignoreDifferences:
     - group: '*'
       kind: '*'
