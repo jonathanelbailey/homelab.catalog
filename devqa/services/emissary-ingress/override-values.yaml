@@ -61,7 +61,7 @@ module:
   diagnostics:
     enabled: true
     allow_non_local: true
-
+  envoy_log_path: /dev/stdout
 
 
 # Configure the ambassador agent
@@ -78,3 +78,16 @@ agent:
 createDefaultListeners: true
 
 app.kubernetes.io/component: ambassador-service
+
+# Configure a 'lifecycle' section for the main pod
+lifecycle: # +doc-gen:break
+  # Example block that works well if the main container is running behind a load balancer that
+  # is slow to deregister pods - e.g. with IP-type registration in an AWS TargetGroup:
+  preStop:
+    exec:
+      command:
+        - "sh"
+        - "-c"
+        - >
+          curl -XPOST localhost:8001/healthcheck/fail;
+          /bin/sleep 45;
