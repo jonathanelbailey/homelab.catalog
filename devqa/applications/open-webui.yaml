@@ -23,13 +23,13 @@ spec:
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
-    - path: devqa/services/istio/apps/open-webui
+    - path: devqa/services/ollama/istio/open-webui
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
-    - path: devqa/services/istio/apps/open-webui-pipelines
+    - path: devqa/services/ollama/istio/open-webui-pipelines
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
-    - path: devqa/services/istio/apps/ollama
+    - path: devqa/services/ollama/istio/ollama
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
   syncPolicy:
