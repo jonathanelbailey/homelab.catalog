@@ -2,6 +2,7 @@ apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
   name: open-webui
+  namespace: open-webui
 spec:
   hosts:
   - "open-webui.internal.magiccityit.com"
