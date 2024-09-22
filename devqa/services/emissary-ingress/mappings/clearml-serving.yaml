@@ -1,4 +1,4 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: clearml-serving
@@ -9,3 +9,4 @@ spec:
   prefix: /
   service: clearml-serving-inference.clearml:8080
   timeout_ms: 10000
+  tls: istio-upstream
