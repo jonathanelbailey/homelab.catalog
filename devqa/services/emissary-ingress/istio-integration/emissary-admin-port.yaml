@@ -10,3 +10,5 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: emissary-ingress
+  mtls:
+    mode: STRICT
