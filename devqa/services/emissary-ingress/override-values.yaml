@@ -1,8 +1,8 @@
-# image:
+image:
   # Emissary Ingress docker repo
-  # repository: registry.internal.magiccityit.com/emissary
+  repository: registry.internal.magiccityit.com/emissary
   # Emissary Ingress docker tag
-  # tag: 3.9.1
+  tag: 3.10.0-rc.0.0.20240903174446-ac2dc64c6621
   # Pod container image pull policy
   # pullPolicy: IfNotPresent
 
