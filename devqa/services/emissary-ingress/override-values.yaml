@@ -45,6 +45,8 @@ scope:
 
 env:
   AMBASSADOR_ID: "emissary"
+  AES_LOG_LEVEL: "debug"
+  AMBASSADOR_DEBUG: "diagd"
 
 resolvers: # +doc-gen:break
   endpoint:
