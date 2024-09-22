@@ -9,9 +9,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      include: bookinfo.yaml
-      jsonnet: {}
     path: devqa/services/istio/bookinfo
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
     targetRevision: HEAD
