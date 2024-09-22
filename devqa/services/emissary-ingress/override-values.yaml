@@ -12,7 +12,7 @@ replicaCount: 1
 # Enable autoscaling using HorizontalPodAutoscaler
 # daemonSet: true, autoscaling will be disabled
 autoscaling: # +doc-gen:break
-  enabled: false
+  enabled: true
   minReplicas: 2
   maxReplicas: 5
   metrics:
