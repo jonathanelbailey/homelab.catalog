@@ -31,3 +31,9 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: getambassador.io
+      kind: Mapping
+      jsonPointers:
+      - /spec/host
