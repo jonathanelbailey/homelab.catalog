@@ -1,3 +1,11 @@
+# image:
+  # Emissary Ingress docker repo
+  # repository: registry.internal.magiccityit.com/emissary
+  # Emissary Ingress docker tag
+  # tag: 3.9.1
+  # Pod container image pull policy
+  # pullPolicy: IfNotPresent
+
 # Enable autoscaling using HorizontalPodAutoscaler
 # daemonSet: true, autoscaling will be disabled
 autoscaling: # +doc-gen:break
