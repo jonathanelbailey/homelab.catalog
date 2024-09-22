@@ -100,6 +100,12 @@ login_token:
 server:
   gzip_enabled: true
   port: 20001
-  metrics_enabled: true
-  metrics_port: 9090
+  observability:
+    metrics:
+      enabled: true
+      port: 9090
+    tracing:
+      collector_type: "jaeger"
+      collector_url: "http://jaeger-tracing-collector.jaeger-tracing:14268/api/traces"
+      enabled: true
   web_fqdn: kiali.internal.magiccityit.com
