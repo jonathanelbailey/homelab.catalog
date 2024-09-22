@@ -9,3 +9,5 @@ spec:
   prefix: /
   service: open-webui.open-webui:80
   tls: istio-upstream
+  allow_upgrade:
+  - websocket
