@@ -1,7 +1,7 @@
 # Enable autoscaling using HorizontalPodAutoscaler
 # daemonSet: true, autoscaling will be disabled
 autoscaling: # +doc-gen:break
-  enabled: false
+  enabled: true
   minReplicas: 2
   maxReplicas: 5
   metrics:
@@ -41,7 +41,7 @@ env:
 # See documentation: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#servicemonitor
 metrics:
   serviceMonitor:
-    enabled: false
+    enabled: true
     # interval: 30s
     # scrapeTimeout: 30s
     # selector: {}
