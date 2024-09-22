@@ -108,8 +108,8 @@ server:
     metrics:
       enabled: true
       port: 9090
-    tracing:
-      collector_type: "jaeger"
-      collector_url: "http://jaeger-tracing-collector.jaeger-tracing:14268/api/traces"
-      enabled: true
+    # tracing:
+    #   collector_type: "jaeger"
+    #   collector_url: "http://jaeger-tracing-collector.jaeger-tracing:14268/api/traces"
+    #   enabled: true
   web_fqdn: kiali.internal.magiccityit.com
