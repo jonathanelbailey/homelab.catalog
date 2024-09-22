@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: clearml-serving-monitor
+  namespace: clearml
+  labels:
+    monitoring: clearml-serving
+spec:
+  jobLabel: clearml-serving
+  selector:
+    matchLabels:
+      clearml.serving.service: clearml-serving-statistics
+  namespaceSelector:
+    matchNames:
+      - clearml
+  endpoints:
+  - port: '9999'
+    interval: 15s
