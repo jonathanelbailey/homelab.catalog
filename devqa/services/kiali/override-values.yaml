@@ -71,6 +71,7 @@ external_services:
     istio_injection_annotation: "sidecar.istio.io/inject"
     istio_sidecar_injector_config_map_name: "istio-sidecar-injector"
     istiod_deployment_name: "istiod"
+    ingress_gateway_namespace: "istio-ingress"
     root_namespace: istio-system
 
 identity: {}
