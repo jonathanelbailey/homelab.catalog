@@ -19,6 +19,9 @@ spec:
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
+    - path: devqa/services/jaeger-tracing/gateway
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
