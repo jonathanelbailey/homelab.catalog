@@ -48,9 +48,9 @@ agent:
     enabled: true
 
 collector:
-  extraEnv:
-  - name: COLLECTOR_ZIPKIN_HOST_PORT
-    value: ":9411"
+  # extraEnv:
+  # - name: COLLECTOR_ZIPKIN_HOST_PORT
+  #   value: ":9411"
   service:
     grpc:
       port: 14250
