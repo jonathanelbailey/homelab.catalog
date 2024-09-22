@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
   - repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/applications/kube-prom-stack
+    path: devqa/applications/observability
     targetRevision: HEAD
   syncPolicy:
     automated:

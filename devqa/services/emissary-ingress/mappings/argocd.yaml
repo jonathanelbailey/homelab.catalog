@@ -1,4 +1,4 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: argocd-server-ui
@@ -11,7 +11,7 @@ spec:
   allow_upgrade:
   - websocket
 ---
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: argocd-server-cli
