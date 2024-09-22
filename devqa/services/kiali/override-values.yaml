@@ -26,6 +26,10 @@ external_services:
       url: http://prometheus-prometheus.observability:9090
   grafana:
     enabled: true
+    auth:
+      username: admin
+      password: prom-operator
+      type: basic
     # Grafana service name is "grafana" and is in the "telemetry" namespace.
     in_cluster_url: http://grafana.observability:3000
     # Public facing URL of Grafana
