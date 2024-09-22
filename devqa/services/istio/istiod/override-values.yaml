@@ -1,9 +1,10 @@
 # revision: "1-23-2"
 # revisionTags: ["stable"]
 
-env:
-  DEFAULT_WORKLOAD_CERT_TTL: 1m
-  MAX_WORKLOAD_CERT_TTL: 1m
+pilot:
+  env:
+    DEFAULT_WORKLOAD_CERT_TTL: 1m
+    MAX_WORKLOAD_CERT_TTL: 1m
 
 
 meshConfig:
