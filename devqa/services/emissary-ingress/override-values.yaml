@@ -36,6 +36,11 @@ scope:
 env:
   AMBASSADOR_ID: "emissary"
 
+resolvers: # +doc-gen:break
+  endpoint:
+    create: true
+    name: endpoint
+
 
 # Prometheus Operator ServiceMonitor configuration
 # See documentation: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#servicemonitor
