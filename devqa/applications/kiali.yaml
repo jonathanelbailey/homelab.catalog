@@ -12,9 +12,9 @@ spec:
     - chart: kiali-server
       helm:
         valueFiles:
-          - $values/devqa/services/kiali/values.yaml
+          - $values/devqa/services/kiali/override-values.yaml
       repoURL: https://kiali.org/helm-charts
-      targetRevision: 1.87.0
+      targetRevision: 1.89.3
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
