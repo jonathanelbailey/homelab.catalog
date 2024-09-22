@@ -21,7 +21,7 @@ spec:
           - >-
             $values/devqa/services/emissary-ingress/override-values.yaml
           - >-
-            $values/devqa/services/emissary-ingress/tracingservices/istio-override-values.yaml
+            $values/devqa/services/emissary-ingress/istio-override-values.yaml
       repoURL: https://app.getambassador.io
       targetRevision: 8.9.1
     - ref: values
