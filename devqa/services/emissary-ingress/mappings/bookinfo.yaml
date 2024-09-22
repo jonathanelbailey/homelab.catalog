@@ -6,7 +6,6 @@ metadata:
 spec:
   ambassador_id: ["emissary"]
   host: bookinfo-v1.internal.magiccityit.com
-  prefix: /productpage
-  rewrite: /productpage
+  prefix: /
   service: productpage.bookinfo:9080
   tls: istio-upstream
