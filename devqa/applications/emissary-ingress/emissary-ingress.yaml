@@ -20,12 +20,17 @@ spec:
         valueFiles:
           - >-
             $values/devqa/services/emissary-ingress/override-values.yaml
+          - >-
+            $values/devqa/services/emissary-ingress/tracingservices/istio-override-values.yaml
       repoURL: https://app.getambassador.io
       targetRevision: 8.9.1
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
     - path: devqa/services/emissary-ingress/tracingservices
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+    - path: devqa/services/emissary-ingress/istio-integration
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
   syncPolicy:
@@ -44,3 +49,4 @@ spec:
     managedNamespaceMetadata:
       labels:
         cert-manager-tls: internal-magiccityit-domain
+        istio-injection: enabled
