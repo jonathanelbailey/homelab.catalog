@@ -8,5 +8,4 @@ spec:
   host: clearml-serving-v1.internal.magiccityit.com
   prefix: /
   service: clearml-serving-inference.clearml:8080
-  timeout_ms: 10000
   tls: istio-upstream
