@@ -79,6 +79,7 @@ prometheus:
             requests:
               storage: 50Gi
           selector: {}
+    ruleSelectorNilUsesHelmValues: false
     # ruleSelector:
     #   any: true
     serviceMonitorSelectorNilUsesHelmValues: false
