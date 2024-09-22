@@ -1,4 +1,4 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: minio
@@ -11,7 +11,7 @@ spec:
   allow_upgrade:
     - websocket
 ---
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: minio-test-s3-api
@@ -22,7 +22,7 @@ spec:
   prefix: /
   service: https://minio.test.svc.cluster.local
 ---
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
   name: minio-test-console
@@ -35,7 +35,7 @@ spec:
   allow_upgrade:
     - websocket
 # ---
-# apiVersion: getambassador.io/v2
+# apiVersion: getambassador.io/v3alpha1
 # kind: TCPMapping
 # metadata:
 #   name: minio-test-s3
