@@ -18,12 +18,23 @@ kiali_route_url: ""
 # Note that only those values used by the Helm Chart will be here.
 #
 
+additional_display_details:
+- annotation: kiali.io/api-spec
+  icon_annotation: kiali.io/api-type
+  title: API Documentation
+
 istio_namespace: "" # default is where Kiali is installed
 
 auth:
   openid: {}
   openshift: {}
   strategy: ""
+
+clustering:
+  autodetect_secrets:
+    enabled: true
+    label: "kiali.io/multiCluster=true"
+  clusters: []
 
 deployment:
   # This only limits what Kiali will attempt to see, but Kiali Service Account has permissions to see everything.
@@ -37,6 +48,9 @@ deployment:
     pod_anti: {}
   configmap_annotations: {}
   custom_secrets: []
+  dns:
+    config: {}
+    policy: ""
   host_aliases: []
   hpa:
     api_version: "autoscaling/v2"
@@ -45,7 +59,7 @@ deployment:
   image_name: quay.io/kiali/kiali
   image_pull_policy: "Always"
   image_pull_secrets: []
-  image_version: ${HELM_IMAGE_TAG} # version like "v1.39" (see: https://quay.io/repository/kiali/kiali?tab=tags) or a digest hash
+  image_version: v1.89.3 # version like "v1.39" (see: https://quay.io/repository/kiali/kiali?tab=tags) or a digest hash
   ingress:
     additional_labels: {}
     class_name: "nginx"
@@ -62,6 +76,7 @@ deployment:
   pod_annotations: {}
   pod_labels: {}
   priority_class_name: ""
+  # if deployment.hpa is defined, this replicas setting will be ignored
   replicas: 1
   resources:
     requests:
@@ -74,7 +89,7 @@ deployment:
   service_annotations: {}
   service_type: ""
   tolerations: []
-  version_label: ${HELM_IMAGE_TAG} # v1.39 # v1.39.0 # see: https://quay.io/repository/kiali/kiali?tab=tags
+  version_label: v1.89.3 # v1.39 # v1.39.0 # see: https://quay.io/repository/kiali/kiali?tab=tags
   view_only_mode: false
 
 external_services:
@@ -93,20 +108,18 @@ kiali_feature_flags:
     secrets:
     - cacerts
     - istio-ca-secret
-  clustering:
-    autodetect_secrets:
-      enabled: true
-      label: "kiali.io/multiCluster=true"
-    clusters: []
   disabled_features: []
   validations:
-    ignore: ["KIA1201"]
+    ignore: ["KIA1301"]
 
 login_token:
   signing_key: ""
 
 server:
   port: 20001
-  metrics_enabled: true
-  metrics_port: 9090
+  #node_port:
+  observability:
+    metrics:
+      enabled: true
+      port: 9090
   web_root: ""
