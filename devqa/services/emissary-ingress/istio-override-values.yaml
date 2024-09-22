@@ -1,7 +1,3 @@
-# Listeners are required in Emissary-ingress 2.0.
-# This will create the two default Listeners for HTTP on port 8080 and HTTPS on port 8443.
-createDefaultListeners: false
-
 # These are annotations that will be added to the Emissary-ingress pods.
 podAnnotations:
   # These first two annotations tell Istio not to try to do port management for the
