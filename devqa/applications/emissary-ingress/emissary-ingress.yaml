@@ -34,8 +34,7 @@ spec:
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
       directory:
-        exclude:
-          - 'emissary-admin-port.yaml'
+        exclude: 'emissary-admin-port.yaml'
   syncPolicy:
     automated:
       prune: true
