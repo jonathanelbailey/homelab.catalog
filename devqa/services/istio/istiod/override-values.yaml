@@ -1,11 +1,12 @@
 # revision: "1-23-2"
 # revisionTags: ["stable"]
 defaults:
-  env:
-  - name: DEFAULT_WORKLOAD_CERT_TTL
-    value: 1m
-  - name: MAX_WORKLOAD_CERT_TTL
-    value: 1m
+  pilot:
+    env:
+    - name: DEFAULT_WORKLOAD_CERT_TTL
+      value: 1m
+    - name: MAX_WORKLOAD_CERT_TTL
+      value: 1m
 
 
 meshConfig:
