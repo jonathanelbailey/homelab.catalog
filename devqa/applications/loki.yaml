@@ -10,7 +10,7 @@ spec:
       targetRevision: 6.12.0
       helm:
         valueFiles:
-          - $values/devqa/services/loki-stack/override-values.yaml
+          - $values/devqa/services/loki/override-values.yaml
       chart: loki
     - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       ref: values
