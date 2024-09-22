@@ -1,0 +1,11 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: bookinfo
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: bookinfo-v1.internal.magiccityit.com
+  prefix: /productpage
+  service: bookinfo.bookinfo:8080
+  tls: istio-upstream

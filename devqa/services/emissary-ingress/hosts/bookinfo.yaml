@@ -1,0 +1,14 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: bookinfo
+  namespace: emissary
+  annotations:
+      external-dns.ambassador-service: emissary-ingress.emissary
+spec:
+  ambassador_id: ["emissary"]
+  hostname: "bookinfo-v1.internal.magiccityit.com"
+  acmeProvider:
+    authority: none
+  tlsSecret:
+    name: internal-magiccityit-domain-tls
