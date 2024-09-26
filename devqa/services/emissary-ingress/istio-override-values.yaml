@@ -12,7 +12,6 @@ podAnnotations:
   proxy.istio.io/config: |
     proxyMetadata:
       OUTPUT_CERTS: /etc/istio-certs
-      SECRET_TTL: 1m
 
   # We use sidecar.istio.io/userVolumeMount to tell the Istio sidecars to mount the istio-certs
   # volume at /etc/istio-certs, allowing the sidecars to see the generated certificates. Though
