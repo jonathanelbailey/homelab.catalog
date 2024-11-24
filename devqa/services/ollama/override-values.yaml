@@ -14,20 +14,21 @@ ollama:
         memory: 16384Mi
         cpu: 1000m
       limits:
-        memory: 32768Mi
+        memory: 65536Mi
     gpu:
       enabled: true
       type: 'nvidia'
       number: 1
     models:
-      - llama3.1
-      - llama3
-      - codellama:34b
+      - llama3.2
+      - mistral-nemo
+      - nemotron
+      - qwen2.5-coder:32b
   runtimeClassName: nvidia
   persistentVolume:
     enabled: true
     storageClass: "microk8s-hostpath"
-    size: 50Gi
+    size: 100Gi
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
