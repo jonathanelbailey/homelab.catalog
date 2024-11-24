@@ -2,7 +2,7 @@ nameOverride: ""
 
 ollama:
   image:
-    tag: "0.3.6"
+    tag: "0.4.4"
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
   enabled: true
   # -- If enabling embedded Ollama, update fullnameOverride to your desired Ollama name value, or else it will use the default ollama.name value from the Ollama chart
@@ -32,6 +32,10 @@ ollama:
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
+  enabled: true
+
+tika:
+  # -- Automatically install Apache Tika to extend Open WebUI
   enabled: true
 
 # -- Open WebUI image tags can be found here: https://github.com/open-webui/open-webui/pkgs/container/open-webui

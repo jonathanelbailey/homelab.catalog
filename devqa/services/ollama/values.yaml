@@ -16,12 +16,17 @@ ollama:
   # runtimeClassName: nvidia
   # persistentVolume:
   #   enabled: true
+  #   volumeName: "example-pre-existing-pv-created-by-smb-csi"
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
   enabled: true
   # -- This section can be used to pass required environment variables to your pipelines (e.g. Langfuse hostname)
   extraEnvVars: []
+
+tika:
+  # -- Automatically install Apache Tika to extend Open WebUI
+  enabled: false
 
 # -- A list of Ollama API endpoints. These can be added in lieu of automatically installing the Ollama Helm chart, or in addition to it.
 ollamaUrls: []
@@ -35,8 +40,15 @@ replicaCount: 1
 # -- Open WebUI image tags can be found here: https://github.com/open-webui/open-webui/pkgs/container/open-webui
 image:
   repository: ghcr.io/open-webui/open-webui
-  tag: "latest"
+  tag: ""
   pullPolicy: "IfNotPresent"
+
+# -- Configure imagePullSecrets to use private registry
+# ref: <https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry>
+imagePullSecrets: []
+# imagePullSecrets:
+# - name: myRegistryKeySecretName
+
 resources: {}
 ingress:
   enabled: false
@@ -52,6 +64,8 @@ persistence:
   size: 2Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
   existingClaim: ""
+  # -- Subdirectory of Open WebUI PVC to mount. Useful if root directory is not empty.
+  subPath: ""
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
   accessModes:
     - ReadWriteOnce
@@ -68,6 +82,9 @@ tolerations: []
 # -- Affinity for pod assignment
 affinity: {}
 
+# -- Topology Spread Constraints for pod assignment
+topologySpreadConstraints: []
+
 # -- Service values to expose Open WebUI pods to cluster
 service:
   type: ClusterIP
@@ -81,7 +98,7 @@ service:
 # -- OpenAI base API URL to use. Defaults to the Pipelines service endpoint when Pipelines are enabled, and "https://api.openai.com/v1" if Pipelines are not enabled and this value is blank
 openaiBaseApiUrl: ""
 
-# -- Additional environments variables on the output Deployment definition. Most up-to-date environment variables can be found here: https://docs.openwebui.com/getting-started/env-configuration/
+# -- Env vars added to the Open WebUI deployment. Most up-to-date environment variables can be found here: https://docs.openwebui.com/getting-started/env-configuration/
 extraEnvVars:
   # -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
   - name: OPENAI_API_KEY
@@ -97,6 +114,25 @@ extraEnvVars:
   #       key: api-key
   # - name: OLLAMA_DEBUG
   #   value: "1"
+
+# -- Configure container volume mounts
+# ref: <https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/>
+volumeMounts:
+  initContainer: []
+  # - name: ""
+  #   mountPath: ""
+  container: []
+  # - name: ""
+  #   mountPath: ""
+
+# -- Configure pod volumes
+# ref: <https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/>
+volumes: []
+# - name: ""
+#   configMap:
+#     name: ""
+# - name: ""
+#   emptyDir: {}
 
 # -- Configure pod security context
 # ref: <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-containe>
