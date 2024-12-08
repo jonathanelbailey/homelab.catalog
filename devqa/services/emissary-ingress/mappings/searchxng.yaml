@@ -1,0 +1,14 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: searchxng
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: searchxng.internal.magiccityit.com
+  prefix: /
+  service: search-xng-searchxng.open-webui:8080
+  tls: istio-upstream
+  timeout_ms: 3000
+  allow_upgrade:
+  - websocket
