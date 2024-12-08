@@ -22,3 +22,13 @@ persistence:
   config:
     enabled: true
   
+
+searxng:
+  config:
+    use_default_settings: true
+    server:
+      secret_key: pleasechangeme
+    # Uncomment when using the builtin rate limiter
+    # See https://docs.searxng.org/src/searx.plugins.limiter.html#limiter-plugin
+    server.limiter: false
+    # redis.url: redis://@searxng-redis:6379/0
