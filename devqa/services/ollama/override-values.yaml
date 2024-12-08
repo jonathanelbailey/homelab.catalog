@@ -2,7 +2,7 @@ nameOverride: ""
 
 ollama:
   image:
-    tag: "0.4.7"
+    tag: "0.4.8"
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
   enabled: true
   # -- If enabling embedded Ollama, update fullnameOverride to your desired Ollama name value, or else it will use the default ollama.name value from the Ollama chart
