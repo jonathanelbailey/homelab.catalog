@@ -2,7 +2,7 @@
 # https://docs.searxng.org/admin/installation-docker.html#command-line
 env:
   INSTANCE_NAME: "my-instance"
-  BASE_URL: "http://localhost:8080/"
+  BASE_URL: "https://searchxng.internal.magiccityit.com"
   AUTOCOMPLETE: "false"
   # MORTY_URL: "http://morty:8080"
   # MORTY_KEY: "mysecretkey"
