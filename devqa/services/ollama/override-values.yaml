@@ -2,7 +2,7 @@ nameOverride: ""
 
 ollama:
   image:
-    tag: "0.4.4"
+    tag: "0.4.7"
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
   enabled: true
   # -- If enabling embedded Ollama, update fullnameOverride to your desired Ollama name value, or else it will use the default ollama.name value from the Ollama chart
@@ -20,19 +20,20 @@ ollama:
       type: 'nvidia'
       number: 1
     models:
-      - llama3.2
-      - mistral-nemo
-      - nemotron
+      - llama3.3
       - qwen2.5-coder:32b
   runtimeClassName: nvidia
   persistentVolume:
     enabled: true
     storageClass: "microk8s-hostpath"
     size: 100Gi
+  extraEnv:
+  - name: OLLAMA_FLASH_ATTENTION
+    value: "true"
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
-  enabled: true
+  enabled: false
 
 tika:
   # -- Automatically install Apache Tika to extend Open WebUI
@@ -51,7 +52,7 @@ persistence:
   enabled: true
   size: 20Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
-  existingClaim: ""
+  existingClaim: "open-webui"
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
   accessModes:
     - ReadWriteOnce
