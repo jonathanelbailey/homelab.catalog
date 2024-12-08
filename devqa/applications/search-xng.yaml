@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: search-xng
+  namespace: argocd
+spec:
+  destination:
+    namespace: open-webui
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
+    path: devqa/services/ollama/search-xng
+    targetRevision: HEAD
+  sources:
+    - chart: open-webui
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/ollama/search-xng/override-values.yaml
+      repoURL: https://helm.openwebui.com/
+      targetRevision: 4.0.6
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
