@@ -13,7 +13,7 @@ spec:
     path: devqa/services/ollama/search-xng
     targetRevision: HEAD
   sources:
-    - chart: searchxng
+    - chart: searxng
       helm:
         valueFiles:
           - >-
