@@ -46,18 +46,18 @@ env:
   # which runs with base-id 0.
   AMBASSADOR_ENVOY_BASE_ID: "1"
 
-service:
-  type: LoadBalancer
+# service:
+#   type: LoadBalancer
 
-  # Note that target http ports need to match your ambassador configurations service_port
-  # https://www.getambassador.io/reference/modules/#the-ambassador-module
-  ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
-      # protocol: TCP
-      # nodePort: 30080
-      # hostPort: 80
-  - name: https
-    port: 8443
-    targetPort: 8443
+#   # Note that target http ports need to match your ambassador configurations service_port
+#   # https://www.getambassador.io/reference/modules/#the-ambassador-module
+#   ports:
+#   - name: http
+#     port: 8080
+#     targetPort: 8080
+#       # protocol: TCP
+#       # nodePort: 30080
+#       # hostPort: 80
+#   - name: https
+#     port: 8443
+#     targetPort: 8443
