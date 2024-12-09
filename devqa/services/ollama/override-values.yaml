@@ -46,7 +46,7 @@ tika:
 # -- Open WebUI image tags can be found here: https://github.com/open-webui/open-webui/pkgs/container/open-webui
 image:
   repository: ghcr.io/open-webui/open-webui
-  tag: "latest"
+  tag: "v0.4.8-cuda"
   pullPolicy: "IfNotPresent"
 resources:
   requests:
