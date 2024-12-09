@@ -15,3 +15,21 @@ spec:
         host: open-webui
         port:
           number: 80
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: searxng
+  namespace: open-webui
+spec:
+  hosts:
+  - "searchxng.internal.magiccityit.com"
+  gateways:
+  - istio-ingress/internal-magiccityit-gateway
+  - mesh
+  http:
+  - route:
+    - destination:
+        host: search-xng-searxng
+        port:
+          number: 8080
