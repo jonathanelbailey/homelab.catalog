@@ -6,6 +6,7 @@ podAnnotations:
   # traffic.sidecar.istio.io/includeInboundPorts: ""      # do not intercept any inbound ports
   # traffic.sidecar.istio.io/includeInboundPorts: "80,443"
   # sidecar.istio.io/interceptionMode: "TPROXY"
+  inject.istio.io/templates: gateway
   # traffic.sidecar.istio.io/includeOutboundIPRanges: ""  # do not intercept any outbound traffic
 
   # We use proxy.istio.io/config to tell the Istio proxy to write newly-generated mTLS certificates
@@ -44,3 +45,4 @@ env:
   # AMBASSADOR_ENVOY_BASE_ID is set to prevent collisions with the Istio sidecar's Envoy,
   # which runs with base-id 0.
   # AMBASSADOR_ENVOY_BASE_ID: "1"
+
