@@ -19,6 +19,12 @@ podAnnotations:
   # this annotation is placed on the Emissary-ingress pods, it is interpreted by Istio.
   sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-certs"}]'
 
+initContainers:
+  - name: istio-init
+    env:
+    - name: ISTIO_INBOUND_PORTS
+      value: "80,443"
+
 # We define a single storage volume called "istio-certs". It starts out empty, and Istio
 # uses it to communicate mTLS certs between the Istio proxy and the Istio sidecars (see the
 # annotations above).
