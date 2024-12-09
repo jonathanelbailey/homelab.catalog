@@ -6,7 +6,7 @@ podAnnotations:
   # traffic.sidecar.istio.io/includeInboundPorts: ""      # do not intercept any inbound ports
   # traffic.sidecar.istio.io/includeInboundPorts: "80,443"
   # sidecar.istio.io/interceptionMode: "TPROXY"
-  inject.istio.io/templates: gateway
+  # inject.istio.io/templates: gateway
   # traffic.sidecar.istio.io/includeOutboundIPRanges: ""  # do not intercept any outbound traffic
 
   # We use proxy.istio.io/config to tell the Istio proxy to write newly-generated mTLS certificates
