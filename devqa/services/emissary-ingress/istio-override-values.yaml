@@ -1,4 +1,11 @@
 # These are annotations that will be added to the Emissary-ingress pods.
+podLabels:
+  app: emissary-ingress
+  version: "3.9.1"
+serviceLabels:
+  app: emissary-ingress
+  version: "3.9.1"
+
 podAnnotations:
   # These first two annotations tell Istio not to try to do port management for the
   # Emissary-ingress pod itself. Though these annotations are placed on the Emissary-ingress
