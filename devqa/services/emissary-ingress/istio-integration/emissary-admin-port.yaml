@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
 spec:
   portLevelMtls:
-    "15090":
+    "8877":
       mode: DISABLE
   selector:
     matchLabels:

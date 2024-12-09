@@ -7,9 +7,9 @@ metadata:
     monitoring: istio-proxies
     release: istio
 spec:
-  selector:
-    matchExpressions:
-    - {key: istio-prometheus-ignore, operator: DoesNotExist}
+  # selector:
+  #   matchExpressions:
+  #   - {key: istio-prometheus-ignore, operator: DoesNotExist}
   namespaceSelector:
     any: true
   jobLabel: envoy-stats
