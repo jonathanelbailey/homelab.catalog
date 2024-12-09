@@ -2,6 +2,9 @@ nameOverride: ""
 
 ollama:
   image:
+    # repository: ghcr.io/ggerganov/llama.cpp
+    # tag: server-cuda
+    repository: ollama/ollama
     tag: "0.5.1"
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
   enabled: true
@@ -34,7 +37,7 @@ ollama:
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
-  enabled: false
+  enabled: true
 
 tika:
   # -- Automatically install Apache Tika to extend Open WebUI
@@ -69,7 +72,23 @@ extraEnvVars:
     value: "0p3n-w3bu!"
   - name: WEBUI_URL
     value: "https://openwebui.internal.magiccityit.com"
+  - name: PDF_EXTRACT_IMAGES
+    value: "true"
+  - name: RAG_EMBEDDING_MODEL
+    value: snowflake-arctic-embed2/latest
+  - name: RAG_EMBEDDING_MODEL_AUTO_UPDATE
+    value: "true"
+  - name: RAG_RERANKING_MODEL
+    value: BAAI/bge-reranker-v2-m3
+  - name: RAG_RERANKING_MODEL_AUTO_UPDATE
+    value: "true"
+  - name: CHUNK_SIZE
+    value: "3000"
+  - name: CHUNK_OVERLAP
+    value: "500"
   - name: ENABLE_RAG_WEB_SEARCH
+    value: "true"
+  - name: ENABLE_SEARCH_QUERY
     value: "true"
   - name: RAG_WEB_SEARCH_ENGINE
     value: "searchxng"
