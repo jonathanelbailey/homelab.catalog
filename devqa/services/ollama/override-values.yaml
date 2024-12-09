@@ -23,7 +23,9 @@ ollama:
       type: 'nvidia'
       number: 1
     models:
+      - llama3.2
       - llama3.3
+      - qwq
       - qwen2.5-coder:32b
       - snowflake-arctic-embed2
   runtimeClassName: nvidia
@@ -70,6 +72,8 @@ extraEnvVars:
   # -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
   - name: OPENAI_API_KEY
     value: "0p3n-w3bu!"
+  - name: OLLAMA_BASE_URL
+    value: http://open-webui-ollama.open-webui.svc.cluster.local:11434
   - name: WEBUI_URL
     value: "https://openwebui.internal.magiccityit.com"
   - name: PDF_EXTRACT_IMAGES
