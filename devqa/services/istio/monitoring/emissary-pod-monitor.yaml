@@ -1,18 +1,19 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: envoy-stats-monitor
+  name: envoy-stats-monitor-emissary
   namespace: istio-system
   labels:
     monitoring: istio-proxies
+    emissary: "true"
     release: istio
 spec:
   selector:
-    matchExpressions:
-    - {key: istio-prometheus-ignore, operator: DoesNotExist}
+    matchLabels:
+      app: emissary-ingress
   namespaceSelector:
     any: true
-  jobLabel: envoy-stats
+  jobLabel: envoy-stats-emissary
   podMetricsEndpoints:
   - path: /stats/prometheus
     interval: 15s
