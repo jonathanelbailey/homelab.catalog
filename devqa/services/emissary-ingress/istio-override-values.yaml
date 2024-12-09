@@ -3,6 +3,9 @@ podLabels:
   app: emissary-ingress
   version: "3.9.1"
   istio: gateway
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "15020"
+  prometheus.io/path: "/stats/prometheus"
 
 podAnnotations:
   # These first two annotations tell Istio not to try to do port management for the
