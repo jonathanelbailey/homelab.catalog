@@ -23,6 +23,7 @@ ollama:
       type: 'nvidia'
       number: 1
     models:
+      - llama3.1
       - llama3.2
       - llama3.3
       - qwq
@@ -36,6 +37,8 @@ ollama:
   extraEnv:
   - name: OLLAMA_FLASH_ATTENTION
     value: "true"
+  - name: OLLAMA_KV_CACHE_TYPE
+    value: "q4_0"
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
