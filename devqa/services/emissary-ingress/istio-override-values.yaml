@@ -3,11 +3,12 @@ podLabels:
   app: emissary-ingress
   version: "3.9.1"
   istio: gateway
-  prometheus.io/path: /stats/prometheus
-  prometheus.io/port: '15020'
-  prometheus.io/scrape: 'true'
+
 
 podAnnotations:
+  prometheus.io/path: /stats/prometheus
+  prometheus.io/port: '15090'
+  prometheus.io/scrape: 'true'
   # These first two annotations tell Istio not to try to do port management for the
   # Emissary-ingress pod itself. Though these annotations are placed on the Emissary-ingress
   # pods, they are interpreted by Istio.
