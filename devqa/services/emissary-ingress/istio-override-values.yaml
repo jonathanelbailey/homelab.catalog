@@ -2,9 +2,6 @@
 podLabels:
   app: emissary-ingress
   version: "3.9.1"
-serviceLabels:
-  app: emissary-ingress
-  version: "3.9.1"
 
 podAnnotations:
   # These first two annotations tell Istio not to try to do port management for the
