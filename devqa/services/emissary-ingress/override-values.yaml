@@ -89,8 +89,8 @@ agent:
 # Whether Emissary should be created with default listeners:
 # - HTTP on port 8080
 # - HTTPS on port 8443
-# createDefaultListeners: true
-createDefaultListeners: false
+createDefaultListeners: true
+# createDefaultListeners: false
 
 app.kubernetes.io/component: ambassador-service
 
