@@ -13,11 +13,11 @@ spec:
     path: devqa/services/ollama/searxng
     targetRevision: HEAD
     kustomize:
-      commonLabels:
-        app: searxng
-        version: "1.0.0"
-        env: devqa
-        tier: services
+      # commonLabels:
+      #   app: searxng
+      #   version: "1.0.0"
+      #   env: devqa
+      #   tier: services
       helmCharts:
       - name: searxng
         repo: https://charts.searxng.org
