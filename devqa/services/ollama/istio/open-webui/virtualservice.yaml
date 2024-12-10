@@ -5,9 +5,9 @@ metadata:
   namespace: open-webui
 spec:
   hosts:
-  - open-webui
-  - open-webui.open-webui
-  - open-webui.open-webui.svc.cluster.local
+  # - open-webui
+  # - open-webui.open-webui
+  # - open-webui.open-webui.svc.cluster.local
   - open-webui.internal.magiccityit.com
   gateways:
   # - istio-ingress/internal-magiccityit-gateway

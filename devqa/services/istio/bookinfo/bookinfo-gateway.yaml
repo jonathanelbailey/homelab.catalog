@@ -5,9 +5,9 @@ metadata:
   namespace: bookinfo
 spec:
   hosts:
-  - productpage
-  - productpage.bookinfo
-  - productpage.bookinfo.svc.cluster.local
+#   - productpage
+#   - productpage.bookinfo
+#   - productpage.bookinfo.svc.cluster.local
   - bookinfo.internal.magiccityit.com
   gateways:
 #   - istio-ingress/internal-magiccityit-gateway

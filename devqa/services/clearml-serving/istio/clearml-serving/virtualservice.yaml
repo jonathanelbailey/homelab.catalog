@@ -5,9 +5,9 @@ metadata:
   namespace: clearml
 spec:
   hosts:
-  - clearml-serving-inference
-  - clearml-serving-inference.clearml
-  - clearml-serving-inference.clearml.svc.cluster.local
+  # - clearml-serving-inference
+  # - clearml-serving-inference.clearml
+  # - clearml-serving-inference.clearml.svc.cluster.local
   - clearml-serving.internal.magiccityit.com
   gateways:
   # - istio-ingress/internal-magiccityit-gateway
