@@ -1,7 +1,7 @@
 apiVersion: getambassador.io/v3alpha1
 kind: Host
 metadata:
-  name: ollama
+  name: open-webui
   namespace: emissary
   annotations:
     external-dns.ambassador-service: emissary-ingress.emissary
