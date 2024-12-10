@@ -9,6 +9,7 @@ spec:
   - searxng
   - searxng.internal.magiccityit.com
   - searxng.open-webui
+  - searxng.open-webui.svc.cluster.local
   gateways:
   # - istio-ingress/internal-magiccityit-gateway
   - emissary/internal-magiccityit-gateway
