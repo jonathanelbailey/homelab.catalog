@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: clearml-serving-v1.internal.magiccityit.com
+  host: clearml-serving.internal.magiccityit.com
   prefix: /
-  service: clearml-serving-inference.clearml:8080
-  tls: istio-upstream
+  service: clearml-serving-inference:8080
+  # tls: istio-upstream

@@ -12,6 +12,7 @@ spec:
   gateways:
 #   - istio-ingress/internal-magiccityit-gateway
   - emissary/internal-magiccityit-gateway
+  - mesh
   http:
   - match:
     - uri:
