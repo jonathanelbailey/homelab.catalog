@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - virtualservice.yaml
+- destinationrule.yaml
 
 commonLabels:
   app: searxng
