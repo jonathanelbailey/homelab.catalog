@@ -10,7 +10,7 @@ spec:
   - productpage.bookinfo.svc.cluster.local
   - bookinfo.internal.magiccityit.com
   gateways:
-#   - istio-ingress/internal-magiccityit-gateway
+  # - istio-ingress/internal-magiccityit-gateway
   - emissary/internal-magiccityit-gateway
   - mesh
   http:
