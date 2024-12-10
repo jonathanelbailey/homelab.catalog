@@ -7,5 +7,5 @@ spec:
   ambassador_id: ["emissary"]
   host: authentik.internal.magiccityit.com
   prefix: /
-  service: authentik-server.authentik:443
+  service: https://authentik-server.authentik:443
   # tls: istio-upstream
