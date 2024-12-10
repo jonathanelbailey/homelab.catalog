@@ -6,11 +6,12 @@ metadata:
 spec:
   hosts:
   - bookinfo.internal.magiccityit.com
-  - bookinfo
-  - bookinfo.bookinfo.svc.cluster.local
-  - bookinfo.bookinfo
+  - productpage
+  - productpage.bookinfo.svc.cluster.local
+  - productpage.bookinfo
   gateways:
-  - istio-ingress/internal-magiccityit-gateway
+#   - istio-ingress/internal-magiccityit-gateway
+  - emissary/internal-magiccityit-gateway
   http:
   - match:
     - uri:
