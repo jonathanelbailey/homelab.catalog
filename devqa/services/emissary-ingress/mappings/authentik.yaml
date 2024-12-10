@@ -1,0 +1,11 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: authentik
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: authentik.internal.magiccityit.com
+  prefix: /
+  service: authentik-server.authentik:443
+  # tls: istio-upstream
