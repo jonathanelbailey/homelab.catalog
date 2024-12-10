@@ -5,7 +5,10 @@ metadata:
   namespace: bookinfo
 spec:
   hosts:
-  - "bookinfo.internal.magiccityit.com"
+  - bookinfo.internal.magiccityit.com
+  - bookinfo
+  - bookinfo.bookinfo.svc.cluster.local
+  - bookinfo.bookinfo
   gateways:
   - istio-ingress/internal-magiccityit-gateway
   http:
