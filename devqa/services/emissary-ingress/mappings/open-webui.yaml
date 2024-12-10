@@ -1,14 +1,14 @@
 apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
-  name: ollama
+  name: open-webui
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: open-webui-v1.internal.magiccityit.com
+  host: open-webui.internal.magiccityit.com
   prefix: /
-  service: open-webui.open-webui:80
-  tls: istio-upstream
+  service: open-webui:80
+  # tls: istio-upstream
   timeout_ms: 30000
   allow_upgrade:
   - websocket
