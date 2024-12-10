@@ -52,4 +52,4 @@ env:
 
   # AMBASSADOR_ENVOY_BASE_ID is set to prevent collisions with the Istio sidecar's Envoy,
   # which runs with base-id 0.
-  AMBASSADOR_ENVOY_BASE_ID: "1"
+  # AMBASSADOR_ENVOY_BASE_ID: "1"
