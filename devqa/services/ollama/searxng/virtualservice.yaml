@@ -5,7 +5,7 @@ metadata:
   namespace: open-webui
 spec:
   hosts:
-  - "*"
+  - "searxng.open-webui"
   gateways:
   # - istio-ingress/internal-magiccityit-gateway
   - mesh
