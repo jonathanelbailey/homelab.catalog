@@ -9,15 +9,15 @@ spec:
       app.kubernetes.io/name: emissary-ingress
   ingress:
   - port:
-      number: 8080
+      number: 80
       protocol: HTTP
       name: http
-    # defaultEndpoint: 127.0.0.1:8080
+    defaultEndpoint: 127.0.0.1:8080
   - port:
-      number: 8443
+      number: 443
       protocol: HTTPS
       name: https
-    # defaultEndpoint: 127.0.0.1:8443
+    defaultEndpoint: 127.0.0.1:8443
   egress:
   - hosts:
     - "*/*"
