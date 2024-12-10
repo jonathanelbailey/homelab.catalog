@@ -8,7 +8,7 @@ spec:
   # - "searxng.internal.magiccityit.com"
   - "searxng.open-webui.svc.cluster.local"
   gateways:
-  - istio-ingress/internal-magiccityit-gateway
+  # - istio-ingress/internal-magiccityit-gateway
   - mesh
   http:
   - route:
