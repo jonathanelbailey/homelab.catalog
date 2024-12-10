@@ -22,13 +22,14 @@ ollama:
       enabled: true
       type: 'nvidia'
       number: 1
-    models:
-      - llama3.1
-      - llama3.2
-      - llama3.3
-      - qwq
-      - qwen2.5-coder:32b
-      - snowflake-arctic-embed2
+    # models:
+    # - llama3.1
+    # - llama3.2
+    # - llama3.2-vision
+    # - llama3.3
+    # - qwq
+    # - qwen2.5-coder:32b
+    # - snowflake-arctic-embed2
   runtimeClassName: nvidia
   persistentVolume:
     enabled: true
@@ -100,4 +101,4 @@ extraEnvVars:
   - name: RAG_WEB_SEARCH_ENGINE
     value: "searchxng"
   - name: SEARXNG_QUERY_URL
-    value: "https://searchxng.internal.magiccityit.com/search?q=<query>"
+    value: "https://searxng.internal.magiccityit.com/search?q=<query>"
