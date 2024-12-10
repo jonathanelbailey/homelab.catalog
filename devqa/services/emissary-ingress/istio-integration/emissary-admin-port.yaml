@@ -1,12 +1,9 @@
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
-  name: emissary-admin-port
+  name: emissary-ingress
   namespace: emissary
 spec:
-  portLevelMtls:
-    "8877":
-      mode: DISABLE
   selector:
     matchLabels:
       app.kubernetes.io/name: emissary-ingress

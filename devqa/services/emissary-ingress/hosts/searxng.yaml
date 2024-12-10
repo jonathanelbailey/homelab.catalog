@@ -7,7 +7,7 @@ metadata:
     external-dns.ambassador-service: emissary-ingress.emissary
 spec:
   ambassador_id: ["emissary"]
-  hostname: "search.internal.magiccityit.com"
+  hostname: "searxng.internal.magiccityit.com"
   acmeProvider:
     authority: none
   tlsSecret:
