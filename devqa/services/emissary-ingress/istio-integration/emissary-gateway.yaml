@@ -1,0 +1,28 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: internal-magiccityit-gateway
+  namespace: emissary
+spec:
+  selector:
+    app.kubernetes.io/name: emissary-ingress
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+    # - "*.internal.magiccityit.com"
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      # mode: PASSTHROUGH
+      mode: SIMPLE
+      credentialName: internal-magiccityit-domain-tls
+      httpsRedirect: true
+    hosts:
+    - "*"
+    # - "*.internal.magiccityit.com"
