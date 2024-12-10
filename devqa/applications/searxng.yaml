@@ -11,14 +11,6 @@ spec:
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
     path: devqa/services/ollama/searxng
     targetRevision: HEAD
-    kustomize:
-      helmCharts:
-      - name: searxng
-        repo: https://charts.searxng.org
-        version: "1.0.0"
-        releaseName: searxng
-        namespace: open-webui
-        valuesFile: override-values.yaml
   syncPolicy:
     automated:
       prune: true

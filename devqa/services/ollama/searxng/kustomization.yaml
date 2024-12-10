@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: searxng
+  version: "1.0.0"
+  env: devqa
+  tier: services
+
+helmCharts:
+- name: searxng
+  repo: https://charts.searxng.org
+  version: "1.0.0"
+  releaseName: searxng
+  namespace: open-webui
+  valuesFile: override-values.yaml
