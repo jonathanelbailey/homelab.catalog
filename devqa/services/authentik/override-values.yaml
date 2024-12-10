@@ -1,0 +1,19 @@
+authentik:
+    secret_key: "CzD2m8E8qTyXPmTz4mzvNxvsBDt4KyhGIX9EgWGQVKo6ZYFlNg"
+    # This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.io, and is fully opt-in
+    error_reporting:
+        enabled: true
+    postgresql:
+        password: "/FVNamd9JQGxfTvYwEn6kn4OoOVVlshgGfQy6mWKO2GwLY7HoeUPovUuXOU2anhnHKnszgNDcXIO9XOW"
+
+server:
+    ingress:
+        enabled: false
+
+postgresql:
+    enabled: true
+    auth:
+        password: "/FVNamd9JQGxfTvYwEn6kn4OoOVVlshgGfQy6mWKO2GwLY7HoeUPovUuXOU2anhnHKnszgNDcXIO9XOW"
+redis:
+    enabled: true
