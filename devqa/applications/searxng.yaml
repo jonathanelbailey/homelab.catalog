@@ -9,12 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: 'https://github.com/jonathanelbailey/homelab.catalog.git'
-    path: devqa/services/ollama/searxng
-    targetRevision: HEAD
-  source:
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-    path: devqa/services/ollama/istio/searxng
+    path: devqa/services/ollama/searxng
     targetRevision: HEAD
     kustomize:
       commonLabels:
