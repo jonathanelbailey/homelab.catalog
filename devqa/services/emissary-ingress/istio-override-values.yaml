@@ -4,7 +4,6 @@ podLabels:
   version: "3.9.1"
   istio: gateway
 
-
 podAnnotations:
   prometheus.io/path: /stats/prometheus
   prometheus.io/port: '15090'
