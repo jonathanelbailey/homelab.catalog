@@ -1,0 +1,14 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: searxng
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: searxng.internal.magiccityit.com
+  prefix: /
+  service: searxng.open-webui:8080
+  tls: istio-upstream
+  timeout_ms: 10000
+  allow_upgrade:
+  - websocket
