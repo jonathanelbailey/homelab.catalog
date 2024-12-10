@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: searxng.internal.magiccityit.com
+  host: search.internal.magiccityit.com
   prefix: /
   service: searxng.open-webui.svc.cluster.local:8080
   tls: istio-upstream

@@ -8,13 +8,18 @@ spec:
   # If you installed Istio using Helm following the standard documentation, this would be "istio=ingress"
   selector:
     istio: gateway # use istio default controller
+    app: istio-gateway
   servers:
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "*.internal.magiccityit.com"
+    # - "*.internal.magiccityit.com"
+    - bookinfo.internal.magiccityit.com
+    - clearml-serving.internal.magiccityit.com
+    - searxng.internal.magiccityit.com
+    - open-webui.internal.magiccityit.com
   - port:
       number: 443
       name: https
@@ -24,4 +29,8 @@ spec:
       credentialName: internal-magiccityit-domain-tls
       httpsRedirect: true
     hosts:
-    - "*.internal.magiccityit.com"
+    # - "*.internal.magiccityit.com"
+    - bookinfo.internal.magiccityit.com
+    - clearml-serving.internal.magiccityit.com
+    - searxng.internal.magiccityit.com
+    - open-webui.internal.magiccityit.com
