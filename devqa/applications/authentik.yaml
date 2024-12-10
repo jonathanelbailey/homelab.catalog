@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authentik
+  namespace: argocd
+spec:
+  destination:
+    namespace: authentik
+    server: https://kubernetes.default.svc
+  # ignoreDifferences:
+  #   - group: '*'
+  #     kind: '*'
+  #     managedFieldsManagers:
+  #       - clusterrole-aggregation-controller
+  #       - controller
+  project: default
+  sources:
+    - chart: authentik
+      helm:
+        valueFiles:
+          - >-
+            $values/devqa/services/authentik/override-values.yaml
+      repoURL: https://charts.goauthentik.io
+      targetRevision: 2024.10.5
+    - ref: values
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+      # - RespectIgnoreDifferences=true
+    # managedNamespaceMetadata:
+    #   labels:
+    #     cert-manager-tls: internal-magiccityit-domain
+    #     istio-injection: enabled
