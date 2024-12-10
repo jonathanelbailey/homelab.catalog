@@ -7,5 +7,5 @@ spec:
   ambassador_id: ["emissary"]
   host: bookinfo.internal.magiccityit.com
   prefix: /
-  service: bookinfo:9080
+  service: productpage:9080
   # tls: istio-upstream
