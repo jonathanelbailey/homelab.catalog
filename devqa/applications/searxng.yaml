@@ -20,11 +20,6 @@ spec:
         releaseName: searxng
         namespace: open-webui
         valuesFile: override-values.yaml
-      # commonLabels:
-      #   app: searxng
-      #   version: "1.0.0"
-      #   env: devqa
-      #   tier: services
   syncPolicy:
     automated:
       prune: true
