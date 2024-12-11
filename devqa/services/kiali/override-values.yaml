@@ -34,7 +34,7 @@ auth:
     issuer_uri: "http://ak-outpost-authentik-embedded-outpost.authentik:9000"
     scopes: ["openid", "profile", "email"]
     username_claim: "email"
-  openshift:
+  # openshift:
     #redirect_uris:
     #token_inactivity_timeout:
     #token_max_age:
