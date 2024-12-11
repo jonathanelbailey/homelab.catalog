@@ -31,7 +31,7 @@ auth:
     # http_proxy: ""
     # https_proxy: ""
     insecure_skip_verify_tls: true
-    issuer_uri: "http://ak-outpost-authentik-embedded-outpost.authentik:9000"
+    issuer_uri: https://authentik.internal.magiccityit.com
     scopes: ["openid", "profile", "email"]
     username_claim: "email"
   # openshift:
