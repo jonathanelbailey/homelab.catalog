@@ -19,6 +19,9 @@ spec:
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
+    - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      path: devqa/services/authentik/istio/
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
