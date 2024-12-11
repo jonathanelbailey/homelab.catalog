@@ -58,6 +58,10 @@ prometheus:
       requests:
         memory: 16384Mi
         cpu: 2000m
+    
+    web:
+      basic_auth_users:
+        admin: $2a$12$AcoBReePdwffZsbn9wmJgumO0hTuN74q6XL046Jyp5w895hFTbPeO
     exemplars: 
       ## Maximum number of exemplars stored in memory for all series.
       ## If not set, Prometheus uses its default value.
