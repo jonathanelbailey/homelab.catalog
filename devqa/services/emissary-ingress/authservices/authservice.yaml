@@ -6,7 +6,8 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: [ "emissary" ]
-  auth_service: http://ak-outpost-authentik-embedded-outpost.authentik:9000
+  auth_service: ak-outpost-authentik-embedded-outpost.authentik:9000
+  tls: istio-upstream
   proto: http
   # timeout_ms: 5000
   # include_body:
