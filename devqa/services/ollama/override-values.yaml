@@ -76,6 +76,20 @@ extraEnvVars:
   # -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
   - name: OPENAI_API_KEY
     value: "0p3n-w3bu!"
+  - name: ENABLE_OAUTH_SIGNUP
+    value: "true"
+  - name: OAUTH_MERGE_ACCOUNTS_BY_EMAIL
+    value: "true"
+  - name: OPENID_PROVIDER_URL
+    value: https://authentik.internal.magiccityit.com/application/o/open-webui/.well-known/openid-configuration
+  - name: OAUTH_CLIENT_ID
+    value: iS20QUlOMXlFgxBpJU2yX9zPSgeWkxZ3zflmJwLl
+  - name: OAUTH_CLIENT_SECRET
+    value:kxecToa5L3mDGtgd4LCnRBimFCw9FXUUadz7qEOtImhh79ubl6nJpQH2U76WQjj2EJcNLMB6mXRbj9LOms4DBGfmLBKjrZ391ZXc6tNerNwXmC1IOd3UrxOVns9jBT8k
+  - name: OAUTH_SCOPES
+    value: openid email profile
+  - name: OPENID_REDIRECT_URI
+    value: https://open-webui.internal.magiccityit.com/oauth/oidc/callback
   - name: OLLAMA_BASE_URL
     value: http://open-webui-ollama.open-webui.svc.cluster.local:11434
   - name: WEBUI_URL
