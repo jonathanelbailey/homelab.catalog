@@ -8,3 +8,4 @@ spec:
   host: registry.internal.magiccityit.com
   prefix: /
   service: registry.container-registry:5000
+  bypass_auth: true

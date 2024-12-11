@@ -8,7 +8,8 @@ spec:
   host: searxng-v1.internal.magiccityit.com
   prefix: /
   service: searxng:8080
-  # tls: istio-upstream
+  tls: istio-upstream
   timeout_ms: 10000
   allow_upgrade:
   - websocket
+  bypass_auth: true

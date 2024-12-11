@@ -21,6 +21,8 @@ spec:
   host: minio-test-s3.internal.magiccityit.com
   prefix: /
   service: https://minio.test.svc.cluster.local
+  tls: istio-upstream
+  bypass_auth: true
 ---
 apiVersion: getambassador.io/v3alpha1
 kind: Mapping
@@ -34,6 +36,8 @@ spec:
   service: https://test-console.test:9443
   allow_upgrade:
     - websocket
+  tls: istio-upstream
+  bypass_auth: true
 # ---
 # apiVersion: getambassador.io/v3alpha1
 # kind: TCPMapping

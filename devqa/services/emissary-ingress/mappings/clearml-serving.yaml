@@ -8,4 +8,5 @@ spec:
   host: clearml-serving-v1.internal.magiccityit.com
   prefix: /
   service: clearml-serving-inference:8080
-  # tls: istio-upstream
+  tls: istio-upstream
+  bypass_auth: true

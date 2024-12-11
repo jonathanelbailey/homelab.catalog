@@ -8,4 +8,5 @@ spec:
   host: authentik-v1.internal.magiccityit.com
   prefix: /
   service: https://authentik-server.authentik:443
-  # tls: istio-upstream
+  tls: istio-upstream
+  bypass_auth: true

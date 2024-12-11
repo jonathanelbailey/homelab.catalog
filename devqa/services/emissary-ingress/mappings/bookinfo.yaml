@@ -9,4 +9,5 @@ spec:
   prefix: /
   rewrite: /productpage
   service: productpage:9080
-  # tls: istio-upstream
+  tls: istio-upstream
+  bypass_auth: true
