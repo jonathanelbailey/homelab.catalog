@@ -14,13 +14,10 @@ spec:
   # - emissary/internal-magiccityit-gateway
   - mesh
   http:
-  - match:
+  - name: "productpage-routes"
+    match:
     - uri:
         exact: /productpage
-    - uri:
-        exact: /
-      rewrite:
-        uri: /productpage
     - uri:
         prefix: /static
     - uri:
@@ -29,6 +26,17 @@ spec:
         exact: /logout
     - uri:
         prefix: /api/v1/products
+    route:
+    - destination:
+        host: productpage
+        port:
+          number: 9080
+  - name: "productpage-catch-all"
+    match:
+    - uri:
+        exact: "/"
+    rewrite:
+      uri: "/newcatalog"
     route:
     - destination:
         host: productpage
