@@ -33,9 +33,9 @@ spec:
     - path: devqa/services/emissary-ingress/istio-integration
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
-    # - path: devqa/services/emissary-ingress/authservices
-    #   repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
-    #   targetRevision: HEAD
+    - path: devqa/services/emissary-ingress/authservices
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
