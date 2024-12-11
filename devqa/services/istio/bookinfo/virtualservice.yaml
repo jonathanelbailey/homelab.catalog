@@ -36,7 +36,7 @@ spec:
     - uri:
         exact: "/"
     rewrite:
-      uri: "/newcatalog"
+      uri: /productpage
     route:
     - destination:
         host: productpage
