@@ -14,4 +14,8 @@ spec:
     - destination:
         host: authentik-server
         port:
-          number: 443
+          number: 80
+  tls:
+  - route:
+    - destination:
+        host: authentik-server
