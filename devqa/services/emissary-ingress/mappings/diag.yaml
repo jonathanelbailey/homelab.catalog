@@ -1,11 +1,11 @@
 apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
-  name: alertmanager-ui
+  name: diag
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: alertmanager.internal.magiccityit.com
-  prefix: /
-  service: prometheus-alertmanager.observability:9093
+  host: emissary-ingress.internal.magiccityit.com
+  prefix: /ambassador/v0/diag/
+  service: localhost:8877
   bypass_auth: true
