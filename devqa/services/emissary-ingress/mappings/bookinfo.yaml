@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: bookinfo.internal.magiccityit.com
+  host: bookinfo-v1.internal.magiccityit.com
   prefix: /
   rewrite: /productpage
   service: productpage:9080

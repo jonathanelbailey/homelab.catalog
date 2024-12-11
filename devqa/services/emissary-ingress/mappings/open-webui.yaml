@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: open-webui.internal.magiccityit.com
+  host: open-webui-v1.internal.magiccityit.com
   prefix: /
   service: open-webui:80
   # tls: istio-upstream

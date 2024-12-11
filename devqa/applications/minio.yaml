@@ -35,3 +35,6 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        istio-injection: enabled
