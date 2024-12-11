@@ -7,12 +7,6 @@ spec:
   destination:
     namespace: authentik
     server: https://kubernetes.default.svc
-  # ignoreDifferences:
-  #   - group: '*'
-  #     kind: '*'
-  #     managedFieldsManagers:
-  #       - clusterrole-aggregation-controller
-  #       - controller
   project: default
   sources:
     - chart: authentik
@@ -37,8 +31,7 @@ spec:
       limit: 2
     syncOptions:
       - CreateNamespace=true
-      # - RespectIgnoreDifferences=true
-    # managedNamespaceMetadata:
-    #   labels:
+    managedNamespaceMetadata:
+      labels:
     #     cert-manager-tls: internal-magiccityit-domain
-    #     istio-injection: enabled
+        istio-injection: enabled
