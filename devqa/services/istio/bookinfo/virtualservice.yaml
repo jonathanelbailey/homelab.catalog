@@ -18,6 +18,10 @@ spec:
     - uri:
         exact: /productpage
     - uri:
+        exact: /
+      rewrite:
+        uri: /productpage
+    - uri:
         prefix: /static
     - uri:
         exact: /login
