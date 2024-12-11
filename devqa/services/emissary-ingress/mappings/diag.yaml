@@ -7,5 +7,6 @@ spec:
   ambassador_id: ["emissary"]
   host: emissary-ingress.internal.magiccityit.com
   prefix: /ambassador/v0/diag/
+  rewrite: /ambassador/v0/diag/
   service: localhost:8877
   bypass_auth: true
