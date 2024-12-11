@@ -16,6 +16,10 @@ spec:
         port:
           number: 80
   tls:
-  - route:
+  - match:
+    - port: 443
+      sniHosts:
+      - authentik.internal.magiccityit.com
+    route:
     - destination:
         host: authentik-server
