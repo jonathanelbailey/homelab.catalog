@@ -8,3 +8,4 @@ spec:
   host: jaeger.internal.magiccityit.com
   prefix: /
   service: jaeger-tracing-query.jaeger-tracing:80
+  bypass_auth: true
