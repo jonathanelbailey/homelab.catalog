@@ -6,15 +6,27 @@ metadata:
 spec:
   hosts:
   - authentik.internal.magiccityit.com
+  - login.internal.magiccityit.com
   gateways:
   - istio-ingress/internal-magiccityit-gateway
   - mesh
   http:
-  - route:
+  - match:
+    - authority:
+        exact: authentik.internal.magiccityit.com
+    route:
     - destination:
         host: authentik-server
         port:
           number: 80
+  - match:
+    - authority:
+        exact: login.internal.magiccityit.com
+    route:
+    - destination:
+        host: ak-outpost-authentik-embedded-outpost
+        port:
+          number: 9000
   tls:
   - match:
     - port: 443
