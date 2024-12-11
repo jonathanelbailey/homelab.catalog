@@ -35,7 +35,7 @@ spec:
     match:
     - uri:
         exact: "/"
-    rewrite:
+    redirect:
       uri: /productpage
     route:
     - destination:
