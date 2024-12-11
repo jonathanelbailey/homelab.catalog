@@ -76,6 +76,10 @@ extraEnvVars:
   # -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
   - name: OPENAI_API_KEY
     value: "0p3n-w3bu!"
+  - name: ENABLE_SIGNUP
+    value: "false"
+  - name: ENABLE_LOGIN_FORM
+    value: "false"
   - name: ENABLE_OAUTH_SIGNUP
     value: "true"
   - name: OAUTH_MERGE_ACCOUNTS_BY_EMAIL
