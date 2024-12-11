@@ -10,3 +10,16 @@ spec:
   service: https://authentik-server.authentik:443
   tls: istio-upstream
   bypass_auth: true
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: authentik-callback
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: authentik-v1.internal.magiccityit.com
+  prefix: /outpost.goauthentik.io/auth/envoy
+  service: https://authentik-server.authentik:443
+  tls: istio-upstream
+  bypass_auth: true
