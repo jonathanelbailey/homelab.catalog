@@ -37,8 +37,3 @@ spec:
         exact: "/"
     redirect:
       uri: /productpage
-    route:
-    - destination:
-        host: productpage
-        port:
-          number: 9080
