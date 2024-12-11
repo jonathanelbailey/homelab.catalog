@@ -85,7 +85,7 @@ extraEnvVars:
   - name: OAUTH_CLIENT_ID
     value: iS20QUlOMXlFgxBpJU2yX9zPSgeWkxZ3zflmJwLl
   - name: OAUTH_CLIENT_SECRET
-    value:kxecToa5L3mDGtgd4LCnRBimFCw9FXUUadz7qEOtImhh79ubl6nJpQH2U76WQjj2EJcNLMB6mXRbj9LOms4DBGfmLBKjrZ391ZXc6tNerNwXmC1IOd3UrxOVns9jBT8k
+    value: kxecToa5L3mDGtgd4LCnRBimFCw9FXUUadz7qEOtImhh79ubl6nJpQH2U76WQjj2EJcNLMB6mXRbj9LOms4DBGfmLBKjrZ391ZXc6tNerNwXmC1IOd3UrxOVns9jBT8k
   - name: OAUTH_SCOPES
     value: openid email profile
   - name: OPENID_REDIRECT_URI
