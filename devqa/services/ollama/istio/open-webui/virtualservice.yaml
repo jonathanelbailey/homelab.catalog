@@ -11,7 +11,7 @@ spec:
   - open-webui.internal.magiccityit.com
   gateways:
   - istio-ingress/internal-magiccityit-gateway
-  - emissary/internal-magiccityit-gateway
+  # - emissary/internal-magiccityit-gateway
   - mesh
   http:
   - route:
