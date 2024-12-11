@@ -14,7 +14,30 @@ deployment:
     time_field_format: "2006-01-02T15:04:05Z07:00"
     sampler_rate: "1"
 auth:
-  strategy: "anonymous"
+  strategy: openid
+  openid:
+    # default: additional_request_params is empty
+    # additional_request_params:
+    #   openIdReqParam: "openIdReqParamValue"
+    # default: allowed_domains is an empty list
+    allowed_domains: ["internal.magiccityit.com"]
+    # api_proxy: ""
+    # api_proxy_ca_data: ""
+    # api_token: "id_token"
+    # authentication_timeout: 300
+    # authorization_endpoint: ""
+    client_id: UpA1HslyCJ8o4ie7sq9yFzoObcW2cEIzg5yNMJ9l
+    # disable_rbac: false
+    # http_proxy: ""
+    # https_proxy: ""
+    insecure_skip_verify_tls: true
+    issuer_uri: "http://ak-outpost-authentik-embedded-outpost.authentik:9000"
+    scopes: ["openid", "profile", "email"]
+    username_claim: "email"
+  openshift:
+    #redirect_uris:
+    #token_inactivity_timeout:
+    #token_max_age:
 external_services:
   custom_dashboards:
     enabled: true
