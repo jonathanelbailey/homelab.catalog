@@ -9,10 +9,6 @@ spec:
   auth_service: ak-outpost-authentik-embedded-outpost.authentik:9000
   tls: istio-upstream
   proto: http
-  # timeout_ms: 5000
-  # include_body:
-  #   max_bytes: 4096
-  #   allow_partial: true
   status_on_error:
     code: 403
   failure_mode_allow: false

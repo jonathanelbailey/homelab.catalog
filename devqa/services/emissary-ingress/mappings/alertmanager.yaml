@@ -8,4 +8,3 @@ spec:
   host: alertmanager.internal.magiccityit.com
   prefix: /
   service: prometheus-alertmanager.observability:9093
-  bypass_auth: true
