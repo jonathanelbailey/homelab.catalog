@@ -20,7 +20,7 @@ spec:
   protocol_version: v3
 
   # proto: http only
-  path_prefix: /outpost.goauthentik.io/auth/envoy/
+  path_prefix: /outpost.goauthentik.io/auth/envoy
   allowed_request_headers:
   - set-cookie
   - X-authentik-username
