@@ -22,6 +22,8 @@ spec:
   # proto: http only
   path_prefix: /outpost.goauthentik.io/auth/envoy
   allowed_request_headers:
+  - set-cookie
+  - x-authentik-*
   - cookie
   allowed_authorization_headers:
   - set-cookie
