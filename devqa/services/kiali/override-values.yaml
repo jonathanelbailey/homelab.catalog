@@ -20,7 +20,7 @@ auth:
     # additional_request_params:
     #   openIdReqParam: "openIdReqParamValue"
     # default: allowed_domains is an empty list
-    allowed_domains: ["internal.magiccityit.com"]
+    # allowed_domains: ["internal.magiccityit.com"]
     # api_proxy: ""
     # api_proxy_ca_data: ""
     # api_token: "id_token"
@@ -30,7 +30,7 @@ auth:
     # disable_rbac: false
     # http_proxy: ""
     # https_proxy: ""
-    insecure_skip_verify_tls: true
+    # insecure_skip_verify_tls: true
     issuer_uri: https://authentik.internal.magiccityit.com/application/o/kiali/.well-known/openid-configuration
     scopes: ["openid", "profile", "email"]
     username_claim: "email"
@@ -121,8 +121,8 @@ kiali_feature_flags:
   validations:
     ignore: ["KIA1201"]
 
-login_token:
-  signing_key: ""
+# login_token:
+#   signing_key: ""
 
 server:
   gzip_enabled: true
