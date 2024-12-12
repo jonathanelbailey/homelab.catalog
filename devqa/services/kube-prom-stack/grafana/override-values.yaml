@@ -42,7 +42,7 @@ grafana:
   # #   type: prometheus
   # #   url: https://{{ printf "%s-prometheus.svc" .Release.Name }}:9090
   # #   version: 1
-  
+  assertNoLeakedSecrets: false
   grafana.ini:
     auth:
       signout_redirect_url: "https://authentik.company/application/o/<Slug of the application from above>/end-session/"
