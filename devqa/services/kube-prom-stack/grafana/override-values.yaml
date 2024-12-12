@@ -6,6 +6,7 @@ crds:
 fullnameOverride: "grafana"
 
 grafana:
+
   defaultDashboardsTimezone: browser
   sidecar:
     dashboards:
@@ -14,7 +15,6 @@ grafana:
     datasources:
       ## URL of prometheus datasource
       url: http://prometheus-prometheus.observability:9090/
-
 
   #     ## Field with internal link pointing to existing data source in Grafana.
   #     ## Can be provisioned via additionalDataSources
@@ -42,6 +42,23 @@ grafana:
   # #   type: prometheus
   # #   url: https://{{ printf "%s-prometheus.svc" .Release.Name }}:9090
   # #   version: 1
+  
+  grafana.ini:
+    auth:
+      signout_redirect_url: "https://authentik.company/application/o/<Slug of the application from above>/end-session/"
+      oauth_auto_login: true
+    auth.generic_oauth:
+      name: authentik
+      enabled: true
+      client_id: "qtCwRyvem8cZr0yBbAdg7hiZZMMEpj0ToOm6wau2"
+      client_secret: "zpZn7WgyCw4QklGuEmxJpJR63rFZidGOF9695unYRTeephHib0JxwXjAWMF5UIeH1EdzYSApGjtDSnACi0bPWMy6nwbYenJwwPSINKt3P7G3r0lCgeGBwy1TNPjvh1Qy"
+      scopes: "openid profile email"
+      auth_url: "https://authentik.internal.magiccityit.com/application/o/authorize/"
+      token_url: "https://authentik.internal.magiccityit.com/application/o/token/"
+      api_url: "https://authentik.internal.magiccityit.com/application/o/userinfo/"
+      # Optionally map user groups to Grafana roles
+      role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
+
 
 defaultRules:
   create: false
