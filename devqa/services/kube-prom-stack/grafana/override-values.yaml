@@ -19,7 +19,7 @@ grafana:
       # Field with internal link pointing to existing data source in Grafana.
       # Can be provisioned via additionalDataSources
       exemplarTraceIdDestinations:
-        datasourceUid: Jaeger
+        datasourceUid: jaeger_tracing_query
         traceIdLabelName: trace_id
       alertmanager:
         enabled: true
@@ -88,7 +88,7 @@ grafana:
         - matcherRegex: "traceID=(\\w+)"
           name: TraceID
           url: 'http://jaeger-tracing-query.jaeger-tracing:80/trace/$${__value.raw}'
-
+  
   assertNoLeakedSecrets: false
 
   grafana.ini:
