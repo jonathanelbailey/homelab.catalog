@@ -136,3 +136,6 @@ server:
     #   collector_url: "http://jaeger-tracing-collector.jaeger-tracing:14268/api/traces"
     #   enabled: true
   web_fqdn: kiali.internal.magiccityit.com
+  web_port: "443"
+  # web_root: ""
+  web_schema: "https"
