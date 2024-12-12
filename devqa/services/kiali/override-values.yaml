@@ -78,7 +78,7 @@ external_services:
     cache_enabled: true
     cache_expiration: 300
     health_check_url: ""
-    is_core: true0
+    is_core: true
     # Prometheus service name is "metrics" and is in the "telemetry" namespace
     url: http://prometheus-prometheus.observability:9090
 
