@@ -24,7 +24,7 @@ grafana:
         traceIdLabelName: trace_id
       alertmanager:
         enabled: true
-        url: http://alertmanager-alertmanager.observability:9093/
+        url: http://prometheus-alertmanager.observability:9093/
         uid: alertmanager
         handleGrafanaManagedAlerts: true
         implementation: prometheus
