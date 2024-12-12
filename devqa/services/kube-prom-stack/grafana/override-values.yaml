@@ -69,7 +69,7 @@ grafana:
     editable: false
     orgId: 1
     type: loki
-    url: http://loki.loki:3100
+    url: http://loki.grafana:3100
     uid: loki
     jsonData:
       timeout: 60
