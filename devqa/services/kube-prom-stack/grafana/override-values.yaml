@@ -13,36 +13,84 @@ grafana:
       provider:
         allowUiUpdates: true
     datasources:
-      ## URL of prometheus datasource
+      # URL of prometheus datasource
       url: http://prometheus-prometheus.observability:9090/
 
-  #     ## Field with internal link pointing to existing data source in Grafana.
-  #     ## Can be provisioned via additionalDataSources
-  #     exemplarTraceIdDestinations: {}
-  #       # datasourceUid: Jaeger
-  #       # traceIdLabelName: trace_id
-  #     alertmanager:
-  #       enabled: true
-  #       uid: alertmanager
-  #       handleGrafanaManagedAlerts: true
-  #       implementation: prometheus
+      # Field with internal link pointing to existing data source in Grafana.
+      # Can be provisioned via additionalDataSources
+      exemplarTraceIdDestinations:
+        datasourceUid: Jaeger
+        traceIdLabelName: trace_id
+      alertmanager:
+        enabled: true
+        uid: alertmanager
+        handleGrafanaManagedAlerts: true
+        implementation: prometheus
 
-  # ## Configure additional grafana datasources (passed through tpl)
-  # ## ref: http://docs.grafana.org/administration/provisioning/#datasources
-  # additionalDataSources: []
-  # # - name: prometheus-sample
-  # #   access: proxy
-  # #   basicAuth: true
-  # #   basicAuthPassword: pass
-  # #   basicAuthUser: daco
-  # #   editable: false
-  # #   jsonData:
-  # #       tlsSkipVerify: true
-  # #   orgId: 1
-  # #   type: prometheus
-  # #   url: https://{{ printf "%s-prometheus.svc" .Release.Name }}:9090
-  # #   version: 1
+  # Configure additional grafana datasources (passed through tpl)
+  # ref: http://docs.grafana.org/administration/provisioning/#datasources
+  additionalDataSources:
+  - name: Jaeger
+    editable: false
+    orgId: 1
+    type: jaeger
+    url: http://jaeger-tracing-query.jaeger-tracing:80
+    # UID should match the datasourceUid in derivedFields.
+    uid: jaeger_tracing_query
+    jsonData:
+        tracesToLogsV2:
+          # Field with an internal link pointing to a logs data source in Grafana.
+          # datasourceUid value must match the uid value of the logs data source.
+          datasourceUid: 'loki'
+          spanStartTimeShift: '1h'
+          spanEndTimeShift: '-1h'
+          tags: ['job', 'instance', 'pod', 'namespace']
+          filterByTraceID: false
+          filterBySpanID: false
+          customQuery: true
+          query: 'method="$${__span.tags.method}"'
+        tracesToMetrics:
+          datasourceUid: 'prom'
+          spanStartTimeShift: '1h'
+          spanEndTimeShift: '-1h'
+          tags: [{ key: 'service.name', value: 'service' }, { key: 'job' }]
+          queries:
+            - name: 'Sample query'
+              query: 'sum(rate(traces_spanmetrics_latency_bucket{$$__tags}[5m]))'
+        nodeGraph:
+          enabled: true
+        traceQuery:
+          timeShiftEnabled: true
+          spanStartTimeShift: '1h'
+          spanEndTimeShift: '-1h'
+        spanBar:
+          type: 'None'
+  - name: Loki
+    editable: false
+    orgId: 1
+    type: loki
+    url: http://loki.loki:3100
+    uid: loki
+    jsonData:
+      timeout: 60
+      maxLines: 1000
+      derivedFields:
+        # Field with internal link pointing to data source in Grafana.
+        # datasourceUid value can be anything, but it should be unique across all defined data source uids.
+        - datasourceUid: jaeger_tracing_query
+          matcherRegex: "traceID=(\\w+)"
+          name: TraceID
+          # url will be interpreted as query for the datasource
+          url: '$${__value.raw}'
+          # optional for URL Label to set a custom display label for the link.
+          urlDisplayLabel: 'View Trace'
+        # Field with external link.
+        - matcherRegex: "traceID=(\\w+)"
+          name: TraceID
+          url: 'http://jaeger-tracing-query.jaeger-tracing:80/trace/$${__value.raw}'
+
   assertNoLeakedSecrets: false
+
   grafana.ini:
     server:
       domain: "internal.magiccityit.com"
@@ -50,6 +98,9 @@ grafana:
     auth:
       signout_redirect_url: "https://authentik.company/application/o/<Slug of the application from above>/end-session/"
       oauth_auto_login: true
+    auth.anonymous:
+      enabled: false
+      org_name: Magic City IT
     auth.generic_oauth:
       name: authentik
       enabled: true
