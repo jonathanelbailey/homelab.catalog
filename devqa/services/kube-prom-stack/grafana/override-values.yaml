@@ -44,6 +44,9 @@ grafana:
   # #   version: 1
   assertNoLeakedSecrets: false
   grafana.ini:
+    server:
+      domain: "internal.magiccityit.com"
+      root_url: "https://grafana.internal.magiccityit.com"
     auth:
       signout_redirect_url: "https://authentik.company/application/o/<Slug of the application from above>/end-session/"
       oauth_auto_login: true
