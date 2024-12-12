@@ -27,7 +27,7 @@ auth:
     # authentication_timeout: 300
     authorization_endpoint: https://authentik.internal.magiccityit.com/application/o/authorize/
     client_id: UpA1HslyCJ8o4ie7sq9yFzoObcW2cEIzg5yNMJ9l
-    # disable_rbac: false
+    disable_rbac: true
     # http_proxy: ""
     # https_proxy: ""
     # insecure_skip_verify_tls: true
