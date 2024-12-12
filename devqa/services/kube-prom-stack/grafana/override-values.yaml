@@ -15,6 +15,7 @@ grafana:
     datasources:
       # URL of prometheus datasource
       url: http://prometheus-prometheus.observability:9090/
+      uid: prometheus
 
       # Field with internal link pointing to existing data source in Grafana.
       # Can be provisioned via additionalDataSources
@@ -23,6 +24,7 @@ grafana:
         traceIdLabelName: trace_id
       alertmanager:
         enabled: true
+        url: http://alertmanager-alertmanager.observability:9093/
         uid: alertmanager
         handleGrafanaManagedAlerts: true
         implementation: prometheus
