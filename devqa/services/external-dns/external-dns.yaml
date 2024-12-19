@@ -75,7 +75,7 @@ spec:
         - --policy=upsert-only
         - --provider=pihole
         # Change this to the actual address of your Pi-hole web server
-        - --pihole-server=http://pi.hole
-        - --pihole-tls-skip-verify
+        - --pihole-server=https://pihole.internal.magiccityit.com
+        # - --pihole-tls-skip-verify
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files
