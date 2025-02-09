@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: devqa/services/external-dns
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+    path: devqa/services/external-dns
     targetRevision: HEAD
   syncPolicy:
     automated:

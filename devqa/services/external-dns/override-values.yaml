@@ -1,0 +1,38 @@
+# Default values for external-dns.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  # -- Image repository for the `external-dns` container.
+  repository: registry.k8s.io/external-dns/external-dns
+  # -- (string) Image tag for the `external-dns` container, this will default to `.Chart.AppVersion` if not set.
+  tag:
+  # -- Image pull policy for the `external-dns` container.
+  pullPolicy: IfNotPresent
+
+serviceMonitor:
+  # -- If `true`, create a `ServiceMonitor` resource to support the _Prometheus Operator_.
+  enabled: true
+
+# -- _Kubernetes_ resources to monitor for DNS entries.
+sources:
+  - service
+  - ingress
+  - ambassador-host
+  - istio-virtualservice
+
+# -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
+policy: upsert-only
+
+# -- Specify the registry for storing ownership and labels.
+# Valid values are `txt`, `aws-sd`, `dynamodb` & `noop`.
+registry: noop
+
+provider:
+  # -- _ExternalDNS_ provider name; for the available providers and how to configure them see [README](https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/README.md#providers).
+  name: pihole
+
+# -- Extra arguments to provide to _ExternalDNS_.
+extraArgs:
+  - --pihole-server=https://pihole.internal.magiccityit.com
+  - --pihole-tls-skip-verify
