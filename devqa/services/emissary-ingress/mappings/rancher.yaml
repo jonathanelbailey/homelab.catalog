@@ -6,6 +6,7 @@ metadata:
 spec:
   ambassador_id: ["emissary"]
   host: rancher-manager.internal.magiccityit.com
+  host_rewrite: rancher.internal.magiccityit.com
   prefix: /
   rewrite: /
   service: rancher.internal.magiccityit.com
