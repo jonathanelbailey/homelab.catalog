@@ -8,5 +8,5 @@ spec:
   host: rancher-manager.internal.magiccityit.com
   prefix: /
   rewrite: /
-  service: https://rancher.internal.magiccityit.com
+  service: rancher.internal.magiccityit.com
   bypass_auth: true
