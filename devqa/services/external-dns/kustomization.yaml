@@ -8,3 +8,6 @@ helmCharts:
   releaseName: external-dns
   namespace: external-dns
   valuesFile: override-values.yaml
+
+patches:
+- path: patches/add_envfrom_block.yaml
