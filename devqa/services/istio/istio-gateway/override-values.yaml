@@ -1,7 +1,8 @@
-defaults:
-  # A-la-carte istio ingress gateway.
-  # Must be installed in a separate namespace, to minimize access to secrets.
-  gateways:
-    istio-ingressgateway:
-      serviceAnnotations:
-        cloudprovider.harvesterhci.io/ipam: dhcp
+# "_internal_defaults_do_not_set" is a workaround for Helm limitations. Users should NOT set "._internal_defaults_do_not_set" explicitly, but rather directly set the fields internally.
+# For instance, instead of `--set _internal_defaults_do_not_set.foo=bar``, just set `--set foo=bar`.
+_internal_defaults_do_not_set:
+  service:
+    # Type of service. Set to "None" to disable the service entirely
+    type: LoadBalancer
+    annotations:
+      cloudprovider.harvesterhci.io/ipam: dhcp
