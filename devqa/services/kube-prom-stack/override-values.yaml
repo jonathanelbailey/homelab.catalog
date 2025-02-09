@@ -19,7 +19,6 @@ alertmanager:
           resources:
             requests:
               storage: 20Gi
-          selector: {}
 
 grafana:
   enabled: false
