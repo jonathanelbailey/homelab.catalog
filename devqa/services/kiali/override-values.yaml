@@ -122,5 +122,5 @@ server:
     #   enabled: true
   web_fqdn: kiali.internal.magiccityit.com
   web_port: "443"
-  web_root: "/kiali"
+  web_root: "/kiali/"
   web_schema: "https"
