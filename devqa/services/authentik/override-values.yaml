@@ -16,8 +16,8 @@ blueprints:
   secrets: []
 
 server:
-    ingress:
-        enabled: false
+  ingress:
+    enabled: false
   ## authentik server Horizontal Pod Autoscaler
   autoscaling:
     # -- Enable Horizontal Pod Autoscaler ([HPA]) for the authentik server
