@@ -12,7 +12,14 @@ spec:
   - chart: gateway
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.23.2
+    helm:
+      valueFiles:
+        - >-
+          $values/devqa/services/istio/istio-gateway/override-values.yaml
   - path: devqa/services/istio/gateways
+    repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+    targetRevision: HEAD
+  - ref: values
     repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
     targetRevision: HEAD
   syncPolicy:
