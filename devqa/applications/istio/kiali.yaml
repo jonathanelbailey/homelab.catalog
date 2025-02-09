@@ -14,7 +14,7 @@ spec:
         valueFiles:
           - $values/devqa/services/kiali/override-values.yaml
       repoURL: https://kiali.org/helm-charts
-      targetRevision: 1.89.3
+      targetRevision: 2.5.0
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD

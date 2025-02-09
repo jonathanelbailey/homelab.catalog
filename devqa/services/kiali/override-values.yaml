@@ -18,7 +18,7 @@ auth:
   openid:
     authentication_timeout: 3600
     authorization_endpoint: https://authentik.internal.magiccityit.com/application/o/authorize/
-    client_id: UpA1HslyCJ8o4ie7sq9yFzoObcW2cEIzg5yNMJ9l
+    client_id: I1AAR9Xlm361f8xW9MPqCWQRdPdBW0EBhKFjJnOB
     disable_rbac: true
     issuer_uri: https://authentik.internal.magiccityit.com/application/o/kiali/
     scopes: ["openid", "profile", "email"]
