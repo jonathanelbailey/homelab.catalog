@@ -7,7 +7,7 @@ metadata:
     external-dns.ambassador-service: emissary-ingress.emissary
 spec:
   ambassador_id: ["emissary"]
-  hostname: "rancher-manager.internal.magiccityit.com"
+  hostname: "rancher.internal.magiccityit.com"
   acmeProvider:
     authority: none
   tlsSecret:
