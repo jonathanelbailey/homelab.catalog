@@ -30,6 +30,10 @@ autoscaling: # +doc-gen:break
         type: Utilization
         averageUtilization: 300
 
+service:
+  annotations:
+    cloudprovider.harvesterhci.io/ipam: dhcp
+
 # Install IngressClass resource
 ingressClassResource:
   enabled: true
