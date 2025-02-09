@@ -5,8 +5,8 @@ metadata:
   namespace: emissary
 spec:
   ambassador_id: ["emissary"]
-  host: rancher-manager.internal.magiccityit.com
+  host: rancher.internal.magiccityit.com
   prefix: /
   rewrite: /
-  service: https://rancher.internal.magiccityit.com
+  service: https://rancher-manager.internal.magiccityit.com
   bypass_auth: true
