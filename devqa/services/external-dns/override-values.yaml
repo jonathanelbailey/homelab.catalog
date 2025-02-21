@@ -14,6 +14,15 @@ serviceMonitor:
   # -- If `true`, create a `ServiceMonitor` resource to support the _Prometheus Operator_.
   enabled: true
 
+rbac:
+  additionalPermissions:
+  - apiGroups: ["extensions","networking.k8s.io", "getambassador.io"]
+    resources: ["ingresses", "hosts"]
+    verbs: ["get","watch","list"]
+  - apiGroups: ["networking.istio.io"]
+    resources: ["gateways", "virtualservices"]
+    verbs: ["get","watch","list"]
+
 # -- _Kubernetes_ resources to monitor for DNS entries.
 sources:
   - service
