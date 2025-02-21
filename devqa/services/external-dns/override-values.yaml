@@ -34,5 +34,5 @@ provider:
 
 # -- Extra arguments to provide to _ExternalDNS_.
 extraArgs:
-  - --pihole-server=https://pihole.internal.magiccityit.com
+  - --pihole-server=https://pi.hole
   - --pihole-tls-skip-verify
