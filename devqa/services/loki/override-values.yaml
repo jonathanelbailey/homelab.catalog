@@ -34,7 +34,7 @@ chunksCache:
   enabled: false
 singleBinary:
   replicas: 1
-  storageClass: microk8s-hostpath
+  storageClass: harvester
 deploymentMode: SingleBinary
 gateway:
   enabled: false

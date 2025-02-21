@@ -1,10 +1,11 @@
 image:
   # Emissary Ingress docker repo
-  repository: registry.internal.magiccityit.com/emissary
+  # repository: registry.internal.magiccityit.com/emissary
+  repository: jebaile7964/emissary
   # Emissary Ingress docker tag
   # tag: 3.10.0-rc.0.0.20240903174446-ac2dc64c6621
   # tag: 3.10.0-rc.0.0.20240903174446-ac2dc64c6621-dirty.1727032351
-  tag: 3.9.2-0.20231120153116-6e2ca35c11d1-dirty.1727368428
+  tag: 3.9.2-0.20231120153116-6e2ca35c11d1-dirty.1727374298
   # Pod container image pull policy
   # pullPolicy: IfNotPresent
 
@@ -29,6 +30,10 @@ autoscaling: # +doc-gen:break
       target:
         type: Utilization
         averageUtilization: 300
+
+service:
+  annotations:
+    cloudprovider.harvesterhci.io/ipam: dhcp
 
 # Install IngressClass resource
 ingressClassResource:

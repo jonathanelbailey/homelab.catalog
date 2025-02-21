@@ -13,6 +13,8 @@ global:
   nameOverride: ""
   # -- String to fully override `"authentik.fullname"`
   fullnameOverride: ""
+  # -- A custom namespace to override the default namespace for the deployed resources.
+  namespaceOverride: ""
   # -- Common labels for all resources.
   additionalLabels: {}
     # app: authentik
@@ -152,6 +154,9 @@ authentik:
       geoip: /geoip/GeoLite2-City.mmdb
       # -- Path for the GeoIP ASN database. If the file doesn't exist, GeoIP features are disabled.
       asn: /geoip/GeoLite2-ASN.mmdb
+  web:
+    # -- Relative path the authentik instance will be available at. Value _must_ contain both a leading and trailing slash.
+    path: /
   email:
     # -- SMTP Server emails are sent from, fully optional
     host: ""
@@ -411,7 +416,7 @@ server:
     timeoutSeconds: 1
     ## Probe configuration
     httpGet:
-      path: /-/health/live/
+      path: "{{ .Values.authentik.web.path }}-/health/live/"
       port: http
 
   readinessProbe:
@@ -427,7 +432,7 @@ server:
     timeoutSeconds: 1
     ## Probe configuration
     httpGet:
-      path: /-/health/ready/
+      path: "{{ .Values.authentik.web.path }}-/health/ready/"
       port: http
 
   startupProbe:
@@ -443,7 +448,7 @@ server:
     timeoutSeconds: 1
     ## Probe configuration
     httpGet:
-      path: /-/health/live/
+      path: "{{ .Values.authentik.web.path }}-/health/live/"
       port: http
 
   # -- terminationGracePeriodSeconds for container lifecycle hook
@@ -577,7 +582,7 @@ server:
 
     # -- List of ingress paths
     paths:
-      - /
+      - "{{ .Values.authentik.web.path }}"
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
     # -- additional ingress paths
@@ -900,7 +905,7 @@ geoip:
     # -- If defined, a repository for GeoIP images
     repository: ghcr.io/maxmind/geoipupdate
     # -- If defined, a tag for GeoIP images
-    tag: v6.0.0
+    tag: v7.1.0
     # -- If defined, an image digest for GeoIP images
     digest: ""
     # -- If defined, an imagePullPolicy for GeoIP images
@@ -985,11 +990,22 @@ postgresql:
   primary:
     extendedConfiguration: |
       max_connections = 500
+    resourcesPreset: "none"
     # persistence:
     #   enabled: true
     #   storageClass:
     #   accessModes:
     #     - ReadWriteOnce
+  readReplicas:
+    resourcesPreset: "none"
+  backup:
+    resourcesPreset: "none"
+  passwordUpdateJob:
+    resourcesPreset: "none"
+  volumePermissions:
+    resourcesPreset: "none"
+  metrics:
+    resourcesPreset: "none"
 
 
 redis:
@@ -998,6 +1014,18 @@ redis:
   architecture: standalone
   auth:
     enabled: false
+  master:
+    resourcesPreset: "none"
+  replica:
+    resourcesPreset: "none"
+  sentinel:
+    resourcesPreset: "none"
+  metrics:
+    resourcesPreset: "none"
+  volumePermissions:
+    resourcesPreset: "none"
+  sysctl:
+    resourcesPreset: "none"
 
 
 # -- additional resources to deploy. Those objects are templated.

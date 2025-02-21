@@ -262,7 +262,7 @@ grafana:
       domain: "internal.magiccityit.com"
       root_url: "https://grafana.internal.magiccityit.com"
     auth:
-      signout_redirect_url: "https://authentik.company/application/o/<Slug of the application from above>/end-session/"
+      signout_redirect_url: "https://authentik.internal.magiccityit.com/application/o/grafana/end-session/"
       oauth_auto_login: true
     auth.anonymous:
       enabled: false
@@ -270,8 +270,8 @@ grafana:
     auth.generic_oauth:
       name: authentik
       enabled: true
-      client_id: "qtCwRyvem8cZr0yBbAdg7hiZZMMEpj0ToOm6wau2"
-      client_secret: "zpZn7WgyCw4QklGuEmxJpJR63rFZidGOF9695unYRTeephHib0JxwXjAWMF5UIeH1EdzYSApGjtDSnACi0bPWMy6nwbYenJwwPSINKt3P7G3r0lCgeGBwy1TNPjvh1Qy"
+      client_id: "uErJYteRvNhNFN4QlZ4YyxUUSV0LvJovbQSDiOdu"
+      client_secret: "4bP3bkPgI4j12a0xA7c9WGZmpLTdzjqXtX3Pa4Pd9tpTBhDRcn2caKzjeCFM3pu2GAfnueDkgCN4gGBaTUbme6B2MMOaU326rXgu3R7Ez5mdyMpwvTOY2irRFOToHLez"
       scopes: "openid profile email"
       auth_url: "https://authentik.internal.magiccityit.com/application/o/authorize/"
       token_url: "https://authentik.internal.magiccityit.com/application/o/token/"

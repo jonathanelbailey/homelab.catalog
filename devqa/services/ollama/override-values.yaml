@@ -33,7 +33,7 @@ ollama:
   runtimeClassName: nvidia
   persistentVolume:
     enabled: true
-    storageClass: "microk8s-hostpath"
+    storageClass: "harvester"
     size: 100Gi
   extraEnv:
   - name: OLLAMA_FLASH_ATTENTION
@@ -66,7 +66,7 @@ persistence:
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
   accessModes:
     - ReadWriteOnce
-  storageClass: "microk8s-hostpath"
+  storageClass: "harvester"
 
 # -- OpenAI base API URL to use. Defaults to the Pipelines service endpoint when Pipelines are enabled, and "https://api.openai.com/v1" if Pipelines are not enabled and this value is blank
 openaiBaseApiUrl: ""

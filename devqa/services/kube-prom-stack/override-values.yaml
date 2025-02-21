@@ -14,12 +14,11 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
-          storageClassName: "microk8s-hostpath"
+          storageClassName: "harvester"
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
               storage: 20Gi
-          selector: {}
 
 grafana:
   enabled: false
@@ -74,12 +73,11 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: "microk8s-hostpath"
+          storageClassName: "harvester"
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
               storage: 50Gi
-          selector: {}
     ruleSelectorNilUsesHelmValues: false
     # ruleSelector:
     #   any: true

@@ -7,9 +7,114 @@ authentik:
     postgresql:
         password: "/FVNamd9JQGxfTvYwEn6kn4OoOVVlshgGfQy6mWKO2GwLY7HoeUPovUuXOU2anhnHKnszgNDcXIO9XOW"
 
+blueprints:
+  # -- List of config maps to mount blueprints from.
+  # Only keys in the configMap ending with `.yaml` will be discovered and applied.
+  configMaps: []
+  # -- List of secrets to mount blueprints from.
+  # Only keys in the secret ending with `.yaml` will be discovered and applied.
+  secrets: []
+
 server:
-    ingress:
-        enabled: false
+  ingress:
+    enabled: false
+  ## authentik server Horizontal Pod Autoscaler
+  autoscaling:
+    # -- Enable Horizontal Pod Autoscaler ([HPA]) for the authentik server
+    enabled: true
+    # -- Minimum number of replicas for the authentik server [HPA]
+    minReplicas: 1
+    # -- Maximum number of replicas for the authentik server [HPA]
+    maxReplicas: 5
+    # -- Average CPU utilization percentage for the authentik server [HPA]
+    targetCPUUtilizationPercentage: 50
+    # -- Average memory utilization percentage for the authentik server [HPA]
+    targetMemoryUtilizationPercentage: ~
+    # -- Configures the scaling behavior of the target in both Up and Down directions.
+    behavior: {}
+      # scaleDown:
+      #   stabilizationWindowSeconds: 300
+      #   policies:
+      #     - type: Pods
+      #       value: 1
+      #       periodSeconds: 180
+      # scaleUp:
+      #   stabilizationWindowSeconds: 300
+      #   policies:
+      #     - type: Pods
+      #       value: 2
+      #       periodSeconds: 60
+    # -- Configures custom HPA metrics for the authentik server
+    # Ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+    metrics: []
+  ## authentik server metrics service configuration
+  metrics:
+    # -- deploy metrics service
+    enabled: true
+    serviceMonitor:
+      # -- enable a prometheus ServiceMonitor
+      enabled: true
+
+## authentik worker
+worker:
+  # -- authentik worker name
+  name: worker
+
+  # -- The number of worker pods to run
+  replicas: 1
+
+  ## authentik worker Horizontal Pod Autoscaler
+  autoscaling:
+    # -- Enable Horizontal Pod Autoscaler ([HPA]) for the authentik worker
+    enabled: true
+    # -- Minimum number of replicas for the authentik worker [HPA]
+    minReplicas: 1
+    # -- Maximum number of replicas for the authentik worker [HPA]
+    maxReplicas: 5
+    # -- Average CPU utilization percentage for the authentik worker [HPA]
+    targetCPUUtilizationPercentage: 50
+    # -- Average memory utilization percentage for the authentik worker [HPA]
+    targetMemoryUtilizationPercentage: ~
+    # -- Configures the scaling behavior of the target in both Up and Down directions.
+    behavior: {}
+      # scaleDown:
+      #   stabilizationWindowSeconds: 300
+      #   policies:
+      #     - type: Pods
+      #       value: 1
+      #       periodSeconds: 180
+      # scaleUp:
+      #   stabilizationWindowSeconds: 300
+      #   policies:
+      #     - type: Pods
+      #       value: 2
+      #       periodSeconds: 60
+    # -- Configures custom HPA metrics for the authentik worker
+    # Ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+    metrics: []
+
+  ## authentik worker Pod Disruption Budget
+  ## Ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+  pdb:
+    # -- Deploy a [PodDistrubtionBudget] for the authentik worker
+    enabled: true
+    # -- Number of pods that are available after eviction as number or percentage (eg.: 50%)
+    # @default -- `""` (defaults to 0 if not specified)
+    minAvailable: "1"
+
+prometheus:
+  rules:
+    enabled: true
+    # -- PrometheusRule namespace
+    namespace: ""
+    # -- PrometheusRule selector
+    selector: {}
+      # prometheus: kube-prometheus
+
+    # -- PrometheusRule labels
+    labels: {}
+    # -- PrometheusRule annotations
+    annotations: {}
 
 postgresql:
     enabled: true

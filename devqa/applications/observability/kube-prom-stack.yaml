@@ -19,7 +19,7 @@ spec:
           - >-
             $values/devqa/services/kube-prom-stack/override-values.yaml
       repoURL: https://prometheus-community.github.io/helm-charts
-      targetRevision: 61.9.0
+      targetRevision: 69.2.0
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD

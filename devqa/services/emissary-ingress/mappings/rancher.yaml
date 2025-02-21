@@ -1,0 +1,12 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: rancher
+  namespace: emissary
+spec:
+  ambassador_id: ["emissary"]
+  host: rancher-manager.internal.magiccityit.com
+  prefix: /
+  rewrite: /
+  service: rancher.internal.magiccityit.com
+  bypass_auth: true

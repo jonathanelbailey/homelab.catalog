@@ -15,7 +15,7 @@ spec:
           - >-
             $values/devqa/services/istio/istiod/override-values.yaml
       repoURL: https://istio-release.storage.googleapis.com/charts
-      targetRevision: 1.23.2
+      targetRevision: 1.24.2
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
