@@ -24,7 +24,7 @@ monitoring:
     metricsInstance:
       enabled: true
   selfMonitoring:
-    enabled: true
+    enabled: false
     grafanaAgent:
       installOperator: false
       enableConfigReadAPI: false
