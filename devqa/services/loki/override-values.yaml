@@ -7,6 +7,8 @@ loki:
     replication_factor: 1
   storage:
     type: 'filesystem'
+minio:
+  enabled: false
 test:
   enabled: false
 lokiCanary:
@@ -38,9 +40,29 @@ singleBinary:
 deploymentMode: SingleBinary
 gateway:
   enabled: false
+# Zero out replica counts of other deployment modes
+backend:
+  replicas: 0
 read:
   replicas: 0
 write:
   replicas: 0
-backend:
+
+ingester:
+  replicas: 0
+querier:
+  replicas: 0
+queryFrontend:
+  replicas: 0
+queryScheduler:
+  replicas: 0
+distributor:
+  replicas: 0
+compactor:
+  replicas: 0
+indexGateway:
+  replicas: 0
+bloomCompactor:
+  replicas: 0
+bloomGateway:
   replicas: 0
