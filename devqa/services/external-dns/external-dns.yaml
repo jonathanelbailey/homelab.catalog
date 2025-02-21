@@ -53,7 +53,7 @@ spec:
       serviceAccountName: external-dns
       containers:
       - name: external-dns
-        image: registry.k8s.io/external-dns/external-dns:v0.13.5
+        image: registry.k8s.io/external-dns/external-dns:v0.15.1
         # If authentication is disabled and/or you didn't create
         # a secret, you can remove this block.
         envFrom:
@@ -75,7 +75,7 @@ spec:
         - --policy=upsert-only
         - --provider=pihole
         # Change this to the actual address of your Pi-hole web server
-        - --pihole-server=https://pihole.internal.magiccityit.com
+        - --pihole-server=https://pi.hole
         - --pihole-tls-skip-verify
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files
