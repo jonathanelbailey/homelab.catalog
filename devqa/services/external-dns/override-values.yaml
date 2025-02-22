@@ -22,6 +22,8 @@ serviceMonitor:
 #   - apiGroups: ["networking.istio.io"]
 #     resources: ["gateways", "virtualservices"]
 #     verbs: ["get","watch","list"]
+serviceAccount:
+  automountServiceAccountToken: false
 
 # -- _Kubernetes_ resources to monitor for DNS entries.
 sources:
