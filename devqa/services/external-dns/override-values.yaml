@@ -47,3 +47,4 @@ provider:
 extraArgs:
   - --pihole-server=https://pi.hole
   - --pihole-tls-skip-verify
+  - --log-level=debug
