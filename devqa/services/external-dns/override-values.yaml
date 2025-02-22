@@ -14,16 +14,7 @@ serviceMonitor:
   # -- If `true`, create a `ServiceMonitor` resource to support the _Prometheus Operator_.
   enabled: true
 
-# rbac:
-#   additionalPermissions:
-#   - apiGroups: ["extensions","networking.k8s.io", "getambassador.io"]
-#     resources: ["ingresses", "hosts"]
-#     verbs: ["get","watch","list"]
-#   - apiGroups: ["networking.istio.io"]
-#     resources: ["gateways", "virtualservices"]
-#     verbs: ["get","watch","list"]
-serviceAccount:
-  automountServiceAccountToken: false
+logLevel: debug
 
 # -- _Kubernetes_ resources to monitor for DNS entries.
 sources:
@@ -47,4 +38,3 @@ provider:
 extraArgs:
   - --pihole-server=https://pi.hole
   - --pihole-tls-skip-verify
-  - --log-level=debug
