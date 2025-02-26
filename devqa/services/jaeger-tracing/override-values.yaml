@@ -10,6 +10,8 @@ cassandra:
   persistence:
     # To enable persistence, please see the documentation for the Cassandra chart
     enabled: true
+  config:
+    cluster_size: 1
 
 # Begin: Default values for the various components of Jaeger
 # This chart has been based on the Kubernetes integration found in the following repo:
