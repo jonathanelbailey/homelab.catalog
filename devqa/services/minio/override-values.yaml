@@ -8,7 +8,7 @@ resources:
   requests:
     memory: 16Gi
 oidc:
-  enabled: true
+  enabled: false
   configUrl: "http://authentik-server.authentik/application/o/minio/.well-known/openid-configuration"
   clientId: "j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa"
   clientSecret: "xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh"
