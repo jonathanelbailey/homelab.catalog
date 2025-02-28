@@ -47,6 +47,18 @@ buckets:
   - name: enterprise-metrics-ruler
     policy: none
     purge: false
+  # Default Tempo storage bucket.
+  - name: tempo-traces
+    policy: none
+    purge: false
+  # Bucket for traces storage if enterprise.enabled is true - requires license.
+  - name: enterprise-traces
+    policy: none
+    purge: false
+  # Admin client bucket if enterprise.enabled is true - requires license.
+  - name: enterprise-traces-admin
+    policy: none
+    purge: false
 
 ## List of command to run after minio install
 ## NOTE: the mc command TARGET is always "myminio"
