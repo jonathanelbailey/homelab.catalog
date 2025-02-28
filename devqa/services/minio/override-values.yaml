@@ -7,3 +7,14 @@ persistence:
 resources:
   requests:
     memory: 16Gi
+oidc:
+  enabled: true
+  configUrl: "https://authentik.internal.magiccityit.com/.well-known/openid-configuration"
+  clientId: "j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa"
+  clientSecret: "xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh"
+  claimName: "policy"
+  scopes: "openid,profile,email"
+  redirectUri: "https://minio.internal.magiccityit.com/oauth_callback"
+  # Can leave empty
+  claimPrefix: ""
+  comment: ""
