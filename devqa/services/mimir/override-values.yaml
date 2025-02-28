@@ -167,11 +167,11 @@ mimir:
     alertmanager_storage:
       backend: s3
       s3:
-        access_key_id: {{ .Values.minio.rootUser }}
+        access_key_id: admin
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-ruler
-        endpoint: {{ template "minio.fullname" .Subcharts.minio }}.{{ .Release.Namespace }}.svc:{{ .Values.minio.service.port }}
-        insecure: true
-        secret_access_key: {{ .Values.minio.rootPassword }}
+        endpoint: https://minio.internal.magiccityit.com
+        insecure: false
+        secret_access_key: "G33kw33k!"
     {{- end }}
 
     {{- if .Values.enterprise.enabled }}
@@ -215,11 +215,11 @@ mimir:
         sync_dir: /data/tsdb-sync
       {{- if .Values.minio.enabled }}
       s3:
-        access_key_id: {{ .Values.minio.rootUser }}
+        access_key_id: admin
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-tsdb
-        endpoint: {{ template "minio.fullname" .Subcharts.minio }}.{{ .Release.Namespace }}.svc:{{ .Values.minio.service.port }}
-        insecure: true
-        secret_access_key: {{ .Values.minio.rootPassword }}
+        endpoint: https://minio.internal.magiccityit.com
+        insecure: false
+        secret_access_key: "G33kw33k!"
       {{- end }}
       tsdb:
         dir: /data/tsdb
@@ -380,11 +380,10 @@ mimir:
       {{- if .Values.minio.enabled }}
       backend: s3
       s3:
-        endpoint: {{ template "minio.fullname" .Subcharts.minio }}.{{ .Release.Namespace }}.svc:{{ .Values.minio.service.port }}
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-ruler
-        access_key_id: {{ .Values.minio.rootUser }}
-        secret_access_key: {{ .Values.minio.rootPassword }}
-        insecure: true
+        endpoint: https://minio.internal.magiccityit.com
+        insecure: false
+        secret_access_key: "G33kw33k!"
       {{- end }}
       {{- if index .Values "metadata-cache" "enabled" }}
       cache:

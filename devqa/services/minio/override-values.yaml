@@ -35,27 +35,22 @@ oidc:
   #  existingSecretKey: password
   #  policy: readonly
 
-buckets: []
-  #   # Name of the bucket
-  # - name: bucket1
-  #   # Policy to be set on the
-  #   # bucket [none|download|upload|public]
-  #   policy: none
-  #   # Purge if bucket exists already
-  #   purge: false
-  #   # set versioning for
-  #   # bucket [true|false]
-  #   versioning: false # remove this key if you do not want versioning feature
-  #   # set objectlocking for
-  #   # bucket [true|false] NOTE: versioning is enabled by default if you use locking
-  #   objectlocking: false
-  # - name: bucket2
-  #   policy: none
-  #   purge: false
-  #   versioning: true
-  #   # set objectlocking for
-  #   # bucket [true|false] NOTE: versioning is enabled by default if you use locking
-  #   objectlocking: false
+buckets:
+  - name: mimir-tsdb
+    policy: none
+    purge: false
+  - name: mimir-ruler
+    policy: none
+    purge: false
+  - name: enterprise-metrics-tsdb
+    policy: none
+    purge: false
+  - name: enterprise-metrics-admin
+    policy: none
+    purge: false
+  - name: enterprise-metrics-ruler
+    policy: none
+    purge: false
 
 ## List of command to run after minio install
 ## NOTE: the mc command TARGET is always "myminio"
