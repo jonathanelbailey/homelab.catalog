@@ -135,15 +135,13 @@ mimir:
 
     admin_client:
       storage:
-      {{- if .Values.minio.enabled }}
         type: s3
         s3:
-          access_key_id: {{ .Values.minio.rootUser }}
+          access_key_id: admin
           bucket_name: enterprise-metrics-admin
-          endpoint: {{ template "minio.fullname" .Subcharts.minio }}.{{ .Release.Namespace }}.svc:{{ .Values.minio.service.port }}
-          insecure: true
-          secret_access_key: {{ .Values.minio.rootPassword }}
-      {{- end }}
+          endpoint: https://minio.internal.magiccityit.com
+          insecure: false
+          secret_access_key: "G33kw33k!"
       {{- if (index .Values "admin-cache" "enabled") }}
         cache:
           backend: memcached
