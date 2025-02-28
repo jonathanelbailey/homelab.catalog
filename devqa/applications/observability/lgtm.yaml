@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lgtm
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://grafana.github.io/helm-charts'
+      targetRevision: 2.1.0
+      helm:
+        valueFiles:
+          - $values/devqa/services/lgtm/override-values.yaml
+      chart: lgtm-distributed
+    - repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      ref: values
+      targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: grafana
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+    retry:
+      limit: 2
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+  # ignoreDifferences:
+  #   - group: '*'
+  #     kind: '*'
+  #     managedFieldsManagers:
+  #       - argocd-controller
