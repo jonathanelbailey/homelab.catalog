@@ -15,10 +15,6 @@ oidc:
   claimName: "policy"
   scopes: "openid,profile,email,minio"
   redirectUri: "https://minio.internal.magiccityit.com/oauth_callback"
-  # Can leave empty
-  claimPrefix: ""
-  comment: ""
-  displayName: "authentik"
 
 # users: []
   ## Username, password and policy to be assigned to the user
