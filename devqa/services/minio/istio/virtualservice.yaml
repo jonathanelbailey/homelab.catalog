@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: minio
+  namespace: minio
+spec:
+  hosts:
+  - minio.internal.magiccityit.com
+  gateways:
+  - istio-ingress/internal-magiccityit-gateway
+  - mesh
+  http:
+  - route:
+    - destination:
+        host: minio-console
+        port:
+          number: 9001

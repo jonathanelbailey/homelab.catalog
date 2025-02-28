@@ -20,6 +20,9 @@ spec:
             $values/devqa/services/minio/override-values.yaml
       repoURL: https://charts.min.io
       targetRevision: 5.4.0
+    - path: devqa/services/minio/istio
+      repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
+      targetRevision: HEAD
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD
