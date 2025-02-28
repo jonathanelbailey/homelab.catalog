@@ -1,6 +1,6 @@
 mode: standalone
-rootUser: "admin"
-rootPassword: "G33kw33k!"
+# rootUser: "admin"
+# rootPassword: "G33kw33k!"
 replicas: 1
 persistence:
   size: 50Gi
@@ -18,7 +18,55 @@ oidc:
   # Can leave empty
   claimPrefix: ""
   comment: ""
-  displayName: ""
+  displayName: "identity_oidc"
+
+users: []
+  ## Username, password and policy to be assigned to the user
+  ## Default policies are [readonly|readwrite|writeonly|consoleAdmin|diagnostics]
+  ## Add new policies as explained here https://min.io/docs/minio/kubernetes/upstream/administration/identity-access-management.html#access-management
+  ## NOTE: this will fail if LDAP is enabled in your MinIO deployment
+  ## make sure to disable this if you are using LDAP.
+  # - accessKey: console
+  #   secretKey: console123
+  #   policy: consoleAdmin
+  # Or you can refer to specific secret
+  #- accessKey: externalSecret
+  #  existingSecret: my-secret
+  #  existingSecretKey: password
+  #  policy: readonly
+
+buckets: []
+  #   # Name of the bucket
+  # - name: bucket1
+  #   # Policy to be set on the
+  #   # bucket [none|download|upload|public]
+  #   policy: none
+  #   # Purge if bucket exists already
+  #   purge: false
+  #   # set versioning for
+  #   # bucket [true|false]
+  #   versioning: false # remove this key if you do not want versioning feature
+  #   # set objectlocking for
+  #   # bucket [true|false] NOTE: versioning is enabled by default if you use locking
+  #   objectlocking: false
+  # - name: bucket2
+  #   policy: none
+  #   purge: false
+  #   versioning: true
+  #   # set objectlocking for
+  #   # bucket [true|false] NOTE: versioning is enabled by default if you use locking
+  #   objectlocking: false
+
+## List of command to run after minio install
+## NOTE: the mc command TARGET is always "myminio"
+customCommands:
+  # - command: "admin policy attach myminio consoleAdmin --group='cn=ops,cn=groups,dc=example,dc=com'"
+  - command: |
+      admin config set myminio identity_openid \
+        config_url="https://authentik.company/application/o/<minio slug>/.well-known/openid-configuration" \
+        client_id="<client id>" \
+        client_secret="<client secret>" \
+        scopes="openid,profile,email,minio"
 
 networkPolicy:
   enabled: false
