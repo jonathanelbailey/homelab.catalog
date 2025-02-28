@@ -64,8 +64,8 @@ customCommands:
   - command: |
       admin config set myminio identity_openid \
         config_url="https://authentik.internal.magiccityit.com/application/o/minio/.well-known/openid-configuration" \
-        client_id="<client id>" \
-        client_secret="<client secret>" \
+        client_id="j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa" \
+        client_secret="xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh" \
         scopes="openid,profile,email,minio"
 
 networkPolicy:
