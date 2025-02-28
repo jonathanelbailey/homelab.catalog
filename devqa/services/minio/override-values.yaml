@@ -1,6 +1,6 @@
 mode: standalone
-# rootUser: "admin"
-# rootPassword: "G33kw33k!"
+rootUser: "admin"
+rootPassword: "G33kw33k!"
 replicas: 1
 persistence:
   size: 50Gi
