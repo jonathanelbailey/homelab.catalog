@@ -18,9 +18,9 @@ oidc:
   # Can leave empty
   claimPrefix: ""
   comment: ""
-  displayName: "identity_oidc"
+  displayName: "authentik"
 
-users: []
+# users: []
   ## Username, password and policy to be assigned to the user
   ## Default policies are [readonly|readwrite|writeonly|consoleAdmin|diagnostics]
   ## Add new policies as explained here https://min.io/docs/minio/kubernetes/upstream/administration/identity-access-management.html#access-management
@@ -59,14 +59,14 @@ buckets: []
 
 ## List of command to run after minio install
 ## NOTE: the mc command TARGET is always "myminio"
-customCommands:
-  # - command: "admin policy attach myminio consoleAdmin --group='cn=ops,cn=groups,dc=example,dc=com'"
-  - command: |
-      admin config set myminio identity_openid \
-        config_url="https://authentik.internal.magiccityit.com/application/o/minio/.well-known/openid-configuration" \
-        client_id="j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa" \
-        client_secret="xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh" \
-        scopes="openid,profile,email,minio"
+# customCommands:
+#   # - command: "admin policy attach myminio consoleAdmin --group='cn=ops,cn=groups,dc=example,dc=com'"
+#   - command: |
+#       admin config set myminio identity_openid \
+#         config_url="https://authentik.internal.magiccityit.com/application/o/minio/.well-known/openid-configuration" \
+#         client_id="j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa" \
+#         client_secret="xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh" \
+#         scopes="openid,profile,email,minio"
 
 networkPolicy:
   enabled: false
