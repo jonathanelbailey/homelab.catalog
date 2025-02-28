@@ -6,12 +6,24 @@ metadata:
 spec:
   hosts:
   - minio.internal.magiccityit.com
+  - s3.internal.magiccityit.com
   gateways:
   - istio-ingress/internal-magiccityit-gateway
   - mesh
   http:
-  - route:
+  - match:
+    - authority:
+        exact: minio.internal.magiccityit.com
+    route:
     - destination:
         host: minio-console
         port:
           number: 9001
+  - match:
+    - authority:
+        exact: s3.internal.magiccityit.com
+    route:
+    - destination:
+        host: minio
+        port:
+          number: 9000
