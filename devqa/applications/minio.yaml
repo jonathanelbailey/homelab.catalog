@@ -18,8 +18,8 @@ spec:
         valueFiles:
           - >-
             $values/devqa/services/minio/override-values.yaml
-      repoURL: https://operator.min.io
-      targetRevision: 5.0.11
+      repoURL: https://charts.min.io
+      targetRevision: 5.4.0
     - ref: values
       repoURL: https://github.com/jonathanelbailey/homelab.catalog.git
       targetRevision: HEAD

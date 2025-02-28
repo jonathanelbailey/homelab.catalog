@@ -18,3 +18,59 @@ oidc:
   # Can leave empty
   claimPrefix: ""
   comment: ""
+  displayName: ""
+
+networkPolicy:
+  enabled: false
+  # Specifies whether the policies created will be standard Network Policies (flavor: kubernetes)
+  # or Cilium Network Policies (flavor: cilium)
+  flavor: kubernetes
+  allowExternal: true
+  # only when using flavor: cilium
+  egressEntities:
+   - kube-apiserver
+
+## PodDisruptionBudget settings
+## ref: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+##
+podDisruptionBudget:
+  enabled: false
+  maxUnavailable: 1
+
+## Specify the service account to use for the MinIO pods. If 'create' is set to 'false'
+## and 'name' is left unspecified, the account 'default' will be used.
+serviceAccount:
+  create: true
+  ## The name of the service account to use. If 'create' is 'true', a service account with that name
+  ## will be created.
+  name: "minio-sa"
+
+metrics:
+  serviceMonitor:
+    enabled: true
+    # scrape each node/pod individually for additional metrics
+    includeNode: true
+    public: true
+    additionalLabels: {}
+    annotations: {}
+    # for node metrics
+    relabelConfigs: {}
+    # for cluster metrics
+    relabelConfigsCluster: {}
+      # metricRelabelings:
+      #   - regex: (server|pod)
+      #     action: labeldrop
+    namespace: ~
+    # Scrape interval, for example `interval: 30s`
+    interval: ~
+    # Scrape timeout, for example `scrapeTimeout: 10s`
+    scrapeTimeout: ~
+
+## ETCD settings: https://github.com/minio/minio/blob/master/docs/sts/etcd.md
+## Define endpoints to enable this section.
+etcd:
+  endpoints: []
+  pathPrefix: ""
+  corednsPathPrefix: ""
+  clientCert: ""
+  clientCertKey: ""
