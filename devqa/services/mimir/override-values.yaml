@@ -139,7 +139,7 @@ mimir:
         s3:
           access_key_id: admin
           bucket_name: enterprise-metrics-admin
-          endpoint: https://minio.internal.magiccityit.com
+          endpoint: https://s3.internal.magiccityit.com
           insecure: false
           secret_access_key: "G33kw33k!"
       {{- if (index .Values "admin-cache" "enabled") }}
@@ -169,7 +169,7 @@ mimir:
       s3:
         access_key_id: admin
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-ruler
-        endpoint: https://minio.internal.magiccityit.com
+        endpoint: https://s3.internal.magiccityit.com
         insecure: false
         secret_access_key: "G33kw33k!"
     {{- end }}
@@ -217,7 +217,7 @@ mimir:
       s3:
         access_key_id: admin
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-tsdb
-        endpoint: https://minio.internal.magiccityit.com
+        endpoint: https://s3.internal.magiccityit.com
         insecure: false
         secret_access_key: "G33kw33k!"
       {{- end }}
@@ -381,7 +381,7 @@ mimir:
       backend: s3
       s3:
         bucket_name: {{ include "mimir.minioBucketPrefix" . }}-ruler
-        endpoint: https://minio.internal.magiccityit.com
+        endpoint: https://s3.internal.magiccityit.com
         insecure: false
         secret_access_key: "G33kw33k!"
       {{- end }}
