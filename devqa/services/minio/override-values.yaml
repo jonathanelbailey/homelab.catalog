@@ -9,7 +9,7 @@ resources:
     memory: 16Gi
 oidc:
   enabled: true
-  configUrl: "https://authentik.internal.magiccityit.com/.well-known/openid-configuration"
+  configUrl: "https://authentik.internal.magiccityit.com/application/o/minio/.well-known/openid-configuration"
   clientId: "j1pFkldsE7mbe2zVJn2xNZXD9A2DQWmCBDon7PLa"
   clientSecret: "xZFhqqMdJ85OKDv4eOkjYrBPKm0ZMV7Psg91VBCafLBBK25d2PPBpEWeT2Jhd5w8yzsKv8IxAAKyXy5zcYlHohY9A9xrkZcLhllxRnTpq8yH7rbwwNLd0dGqhCWYlCTh"
   claimName: "policy"
@@ -63,7 +63,7 @@ customCommands:
   # - command: "admin policy attach myminio consoleAdmin --group='cn=ops,cn=groups,dc=example,dc=com'"
   - command: |
       admin config set myminio identity_openid \
-        config_url="https://authentik.company/application/o/<minio slug>/.well-known/openid-configuration" \
+        config_url="https://authentik.internal.magiccityit.com/application/o/minio/.well-known/openid-configuration" \
         client_id="<client id>" \
         client_secret="<client secret>" \
         scopes="openid,profile,email,minio"
