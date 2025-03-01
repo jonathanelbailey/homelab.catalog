@@ -18,3 +18,5 @@ extraEnv:
   value: all
 - name: NVIDIA_DRIVER_CAPABILITIES
   value: all
+nodeSelector:
+  nvidia.com/gpu.present: 'true'
