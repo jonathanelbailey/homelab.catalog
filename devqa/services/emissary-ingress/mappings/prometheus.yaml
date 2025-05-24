@@ -8,3 +8,4 @@ spec:
   host: prometheus.internal.magiccityit.com
   prefix: /
   service: prometheus-prometheus.observability:9090
+  
